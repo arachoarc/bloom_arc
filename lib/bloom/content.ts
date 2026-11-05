@@ -34,6 +34,8 @@ export const ui = {
     },
     pause: { ko: "영상 일시정지", en: "Pause video" },
     play: { ko: "영상 재생", en: "Play video" },
+    soundOn: { ko: "소리 켜기", en: "Turn sound on" },
+    soundOff: { ko: "소리 끄기", en: "Turn sound off" },
     fallback: {
       ko: "영상을 자동 재생할 수 없어 대표 이미지를 보여드려요.",
       en: "Autoplay is unavailable, so we're showing the key visual.",
