@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import AuthMenu, { AuthMenuFallback } from "@/components/auth/AuthMenu";
-import { COLLAB } from "@/lib/bloom/content";
 
 /** 회원 화면(/login, /signup, /mypage) 공통 틀. 랜딩과 같은 모바일 프레임을 쓴다. */
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
@@ -13,16 +12,17 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
           <AuthMenu />
         </Suspense>
         <div className="flex h-14 items-center px-4">
-          <Link href="/" className="flex items-center gap-2" aria-label="bl✿om! 메인으로">
+          <Link href="/" className="flex items-center" aria-label="bl✿om! 메인으로">
+            {/* 메인 헤더(모바일)와 같은 로고 크기 */}
             <Image
               src="/bloom/logo/color.png"
               alt="bl✿om!"
               width={2172}
               height={724}
-              className="h-7 w-auto"
+              sizes="120px"
+              className="h-10 w-auto"
               preload
             />
-            <span className="text-[10px] font-bold tracking-tight text-ink/60">{COLLAB}</span>
           </Link>
         </div>
       </header>
