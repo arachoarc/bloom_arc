@@ -29,7 +29,7 @@ export default function Story() {
         />
         <Eyebrow tone="light">{s.eyebrow[lang]}</Eyebrow>
         <p className="mt-3 text-sm font-bold tracking-wide text-lime">{COLLAB}</p>
-        <h2 id="story-title" className="mt-2 font-display text-[40px] leading-[1.05] text-cream-head">
+        <h2 id="story-title" className="mt-2 font-display text-[40px] leading-[1.05] text-pink">
           {s.title[lang]}
         </h2>
         <p className="mt-3 font-display text-xl text-cream-head/90">{s.lead[lang]}</p>
