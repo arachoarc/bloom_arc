@@ -15,13 +15,13 @@ export default function Goods() {
   const item = goods.find((x) => x.id === openId) ?? null;
 
   return (
-    <section id="goods" aria-labelledby="goods-title" className="relative overflow-hidden bg-cream-light py-14">
-      <div className="pr-20 pl-5">
+    <section id="goods" aria-labelledby="goods-title" className="relative overflow-hidden bg-cream-light py-14 md:py-24">
+      <div className="pr-20 pl-5 md:mx-auto md:max-w-6xl md:pr-10 md:pl-10">
         <Eyebrow>{g.eyebrow[lang]}</Eyebrow>
-        <h2 id="goods-title" className="mt-3 font-display text-[28px] leading-tight text-ink">
+        <h2 id="goods-title" className="mt-3 font-display text-[28px] leading-tight text-ink md:max-w-2xl md:text-4xl">
           {g.title[lang]}
         </h2>
-        <p className="mt-2 text-sm text-ink/65">{g.sub[lang]}</p>
+        <p className="mt-2 text-sm text-ink/65 md:mt-3 md:text-base">{g.sub[lang]}</p>
       </div>
 
       {/* 가장자리에서 안내하는 피오·토리 (제품을 가리지 않도록 헤더 옆에 배치) */}
@@ -30,23 +30,23 @@ export default function Goods() {
         alt=""
         width={307}
         height={386}
-        className="pointer-events-none absolute top-4 -right-5 h-[92px] w-auto rotate-[-8deg]"
+        className="pointer-events-none absolute top-4 -right-5 h-[92px] w-auto rotate-[-8deg] md:top-16 md:right-[5%] md:h-[140px]"
       />
 
-      <ul className="no-scrollbar mt-7 flex snap-x snap-mandatory gap-3.5 overflow-x-auto px-5 pb-3">
+      <ul className="no-scrollbar mt-7 flex snap-x snap-mandatory gap-3.5 overflow-x-auto px-5 pb-3 md:mx-auto md:mt-12 md:grid md:max-w-6xl md:grid-cols-3 md:gap-6 md:overflow-visible md:px-10 md:pb-0">
         {goods.map((p) => (
-          <li key={p.id} className="w-[76%] shrink-0 snap-center">
+          <li key={p.id} className="w-[76%] shrink-0 snap-center md:w-auto">
             <button
               type="button"
               onClick={() => setOpenId(p.id)}
-              className="group flex w-full flex-col overflow-hidden rounded-[28px] bg-cream text-left shadow-[0_2px_0_rgba(0,0,0,0.04)] ring-1 ring-ink/5"
+              className="group flex w-full flex-col overflow-hidden rounded-[28px] bg-cream text-left shadow-[0_2px_0_rgba(0,0,0,0.04)] ring-1 ring-ink/5 transition md:hover:-translate-y-1 md:hover:shadow-xl md:hover:ring-pink/30"
             >
               <div className="relative aspect-[4/5] w-full bg-cream">
                 <Image
                   src={p.img}
                   alt={p.alt[lang]}
                   fill
-                  sizes="(max-width: 430px) 76vw, 330px"
+                  sizes="(max-width: 767px) 76vw, 360px"
                   className="object-contain p-3 transition-transform group-active:scale-[0.98]"
                 />
                 <span className="absolute top-3 left-3 rounded-full bg-limited px-2.5 py-1 text-[10px] font-bold tracking-wider text-ink">
@@ -72,23 +72,23 @@ export default function Goods() {
         alt=""
         width={297}
         height={341}
-        className="pointer-events-none absolute -bottom-2 -left-3 h-[64px] w-auto"
+        className="pointer-events-none absolute -bottom-2 -left-3 h-[64px] w-auto md:left-[3%] md:h-[96px]"
       />
 
-      <Sheet open={!!item} onClose={() => setOpenId(null)} labelledBy="goods-sheet-title">
+      <Sheet open={!!item} onClose={() => setOpenId(null)} labelledBy="goods-sheet-title" size="lg">
         {item && (
-          <article className="px-5 pb-8">
+          <article className="px-5 pb-8 md:grid md:grid-cols-2 md:items-start md:gap-8 md:px-8 md:pb-10">
             <button
               type="button"
               onClick={() => setZoom(item)}
-              className="relative block aspect-square w-full cursor-zoom-in overflow-hidden rounded-3xl bg-cream"
+              className="relative block aspect-square w-full cursor-zoom-in overflow-hidden rounded-3xl bg-cream md:sticky md:top-16"
               aria-label={`${item.name} — ${g.zoomHint[lang]}`}
             >
               <Image
                 src={item.img}
                 alt={item.alt[lang]}
                 fill
-                sizes="(max-width: 430px) 100vw, 430px"
+                sizes="(max-width: 767px) 100vw, 440px"
                 className="object-contain p-2"
               />
               <span className="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full bg-ink/70 px-3 py-1.5 text-[11px] font-bold text-white">
@@ -100,7 +100,8 @@ export default function Goods() {
               </span>
             </button>
 
-            <h3 id="goods-sheet-title" className="mt-5 font-display text-[30px] leading-none text-ink">
+            <div>
+            <h3 id="goods-sheet-title" className="mt-5 font-display text-[30px] leading-none text-ink md:mt-2 md:text-4xl">
               {item.name}
             </h3>
             <p className="mt-1.5 text-xs font-bold text-ink/50">{COLLAB}</p>
@@ -144,6 +145,7 @@ export default function Goods() {
               <BellIcon />
               {g.notifyCta[lang]}
             </PrimaryButton>
+            </div>
           </article>
         )}
       </Sheet>

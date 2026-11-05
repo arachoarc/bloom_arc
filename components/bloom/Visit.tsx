@@ -18,22 +18,24 @@ export default function Visit() {
   ] as const;
 
   return (
-    <section id="visit" aria-labelledby="visit-title" className="relative overflow-hidden bg-grass px-5 py-14 text-cream-head">
+    <section id="visit" aria-labelledby="visit-title" className="relative overflow-hidden bg-grass px-5 py-14 text-cream-head md:px-10 md:py-24">
       <Image
         src="/bloom/gfx/main-flower.png"
         alt=""
         width={698}
         height={748}
-        className="pointer-events-none absolute -top-10 -right-14 w-44 opacity-90"
+        className="pointer-events-none absolute -top-10 -right-14 w-44 opacity-90 md:-top-16 md:right-[4%] md:w-72"
       />
+      <div className="relative mx-auto max-w-6xl">
       <Eyebrow tone="light">{v.eyebrow[lang]}</Eyebrow>
-      <h2 id="visit-title" className="relative mt-3 font-display text-[30px] leading-tight">
+      <h2 id="visit-title" className="relative mt-3 font-display text-[30px] leading-tight md:text-5xl">
         {v.title[lang]}
       </h2>
 
-      <div className="relative mt-7 rounded-[28px] bg-cream-light p-5 text-ink">
+      <div className="md:mt-10 md:grid md:grid-cols-[3fr_2fr] md:items-start md:gap-6">
+      <div className="relative mt-7 rounded-[28px] bg-cream-light p-5 text-ink md:mt-0 md:p-8">
         <div className="flex items-start justify-between gap-3">
-          <p className="font-display text-xl leading-tight text-pink-deep">{v.popupName[lang]}</p>
+          <p className="font-display text-xl leading-tight text-pink-deep md:text-2xl">{v.popupName[lang]}</p>
           <span className="shrink-0 rounded-full bg-limited px-2.5 py-1 text-[11px] font-bold">
             {v.badge[lang]}
           </span>
@@ -42,17 +44,17 @@ export default function Visit() {
 
         <dl className="mt-4 divide-y divide-ink/10 border-t border-ink/10 text-sm">
           {rows.map(([k, val]) => (
-            <div key={k.en} className="flex gap-3 py-3">
-              <dt className="w-20 shrink-0 font-bold text-ink/60">{k[lang]}</dt>
+            <div key={k.en} className="flex gap-3 py-3 md:gap-6 md:py-4 md:text-[15px]">
+              <dt className="w-20 shrink-0 font-bold text-ink/60 md:w-28">{k[lang]}</dt>
               <dd className="text-ink/85">{val[lang]}</dd>
             </div>
           ))}
         </dl>
       </div>
 
-      <div className="relative mt-4 rounded-[28px] bg-forest/60 p-5 ring-1 ring-cream-head/15">
-        <h3 className="font-display text-lg">{v.howTitle[lang]}</h3>
-        <p className="mt-1.5 text-[13px] leading-5 text-cream-head/80">{v.howBody[lang]}</p>
+      <div className="relative mt-4 rounded-[28px] bg-forest/60 p-5 ring-1 ring-cream-head/15 md:mt-0 md:p-8">
+        <h3 className="font-display text-lg md:text-2xl">{v.howTitle[lang]}</h3>
+        <p className="mt-1.5 text-[13px] leading-5 text-cream-head/80 md:mt-3 md:text-sm md:leading-6">{v.howBody[lang]}</p>
         <div className="mt-4 grid gap-2.5">
           {(
             [
@@ -65,7 +67,7 @@ export default function Visit() {
               href={MAP_LINKS[key]}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-12 items-center justify-between rounded-full bg-cream-head px-5 text-sm font-bold text-ink"
+              className="flex min-h-12 items-center justify-between rounded-full bg-cream-head px-5 text-sm font-bold text-ink transition-colors hover:bg-white"
             >
               <span className="flex items-center gap-2">
                 <svg viewBox="0 0 24 24" className="size-5 text-pink" fill="currentColor" aria-hidden>
@@ -78,6 +80,8 @@ export default function Visit() {
             </a>
           ))}
         </div>
+      </div>
+      </div>
       </div>
     </section>
   );

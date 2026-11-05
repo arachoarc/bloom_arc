@@ -27,6 +27,13 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* lg(1024px) 이상: 회원 메뉴 32px + 한 줄 헤더 64px */
+@media (min-width: 64rem) {
+  html {
+    scroll-padding-top: 104px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -38,6 +45,13 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-tap-highlight-color: transparent;
+}
+
+/* 한국어 제목이 단어 중간에서 줄바꿈되지 않게 한다 */
+h1,
+h2,
+h3 {
+  word-break: keep-all;
 }
 
 .no-scrollbar {

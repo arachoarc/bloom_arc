@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { useBloom } from "./BloomContext";
-import { BellIcon, Eyebrow, PrimaryButton } from "./parts";
+import { BellIcon, Duo, Eyebrow, PrimaryButton } from "./parts";
 import { ui, type Topic } from "@/lib/bloom/content";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -66,9 +66,9 @@ export default function Notify() {
   ];
 
   return (
-    <section id="notify" aria-labelledby={done ? "notify-done" : "notify-title"} className="bg-cream-light px-5 py-14">
+    <section id="notify" aria-labelledby={done ? "notify-done" : "notify-title"} className="bg-cream-light px-5 py-14 md:px-10 md:py-24">
       {done ? (
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center md:mx-auto md:max-w-xl">
           <div className="relative w-full rounded-[32px] bg-cream px-5 pt-8 pb-7">
             <Image
               src="/bloom/chars/together-welcome.png"
@@ -115,13 +115,23 @@ export default function Notify() {
           </div>
         </div>
       ) : (
-        <>
+        <div className="md:mx-auto md:grid md:max-w-5xl md:grid-cols-2 md:items-start md:gap-16">
+          <div className="md:sticky md:top-32">
           <Eyebrow>{n.eyebrow[lang]}</Eyebrow>
-          <h2 id="notify-title" className="mt-3 font-display text-[28px] leading-tight text-ink">
+          <h2 id="notify-title" className="mt-3 font-display text-[28px] leading-tight text-ink md:text-4xl">
             {n.title[lang]}
           </h2>
+          <div className="mt-10 hidden rounded-[32px] bg-cream px-8 pt-8 pb-6 md:block">
+            <Duo
+              pio={{ src: "/bloom/chars/pio-smile.png", w: 334, h: 386, alt: "" }}
+              tori={{ src: "/bloom/chars/tori-welcome.png", w: 412, h: 380, alt: "" }}
+              height={150}
+              className="justify-center"
+            />
+          </div>
+          </div>
 
-          <form onSubmit={onSubmit} noValidate className="mt-7">
+          <form onSubmit={onSubmit} noValidate className="mt-7 md:mt-0 md:rounded-[32px] md:bg-white md:p-8 md:shadow-sm md:ring-1 md:ring-ink/5">
             <fieldset aria-describedby={errors.topic ? "err-topic" : undefined}>
               <legend className="text-sm font-bold text-ink/80">{n.pick[lang]}</legend>
               <div className="mt-3 grid gap-2.5">
@@ -201,7 +211,7 @@ export default function Notify() {
               {n.proto[lang]}
             </p>
           </form>
-        </>
+        </div>
       )}
     </section>
   );

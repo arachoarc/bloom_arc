@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useBloom } from "./BloomContext";
-import { ui } from "@/lib/bloom/content";
+import { COLLAB, ui } from "@/lib/bloom/content";
+import { BellIcon } from "./parts";
 
 const POSTER = "/bloom/kv-poster.png";
 
@@ -52,8 +53,10 @@ export default function Hero() {
   }
 
   return (
-    <section id="top" aria-label={ui.hero.videoLabel[lang]} className="bg-forest">
-      <div className="relative aspect-[1080/1916] w-full overflow-hidden bg-forest">
+    <section id="top" aria-label={ui.hero.videoLabel[lang]} className="bg-forest md:px-10 md:py-10">
+      {/* md 이상: 세로 영상(왼쪽) + 안내 패널(오른쪽) */}
+      <div className="md:mx-auto md:flex md:max-w-6xl md:items-center md:justify-center md:gap-10 lg:gap-20">
+      <div className="relative aspect-[1080/1916] w-full overflow-hidden bg-forest md:h-[clamp(460px,calc(100dvh-200px),620px)] lg:h-[clamp(520px,calc(100dvh-152px),860px)] md:w-auto md:shrink-0 md:rounded-[32px] md:shadow-2xl md:ring-1 md:ring-cream-head/10">
         <video
           ref={video}
           className="absolute inset-0 size-full object-cover"
@@ -74,7 +77,7 @@ export default function Hero() {
             src={POSTER}
             alt={ui.hero.posterAlt[lang]}
             fill
-            sizes="(max-width: 430px) 100vw, 430px"
+            sizes="(max-width: 767px) 100vw, 480px"
             className="object-cover"
             preload
           />
@@ -125,9 +128,51 @@ export default function Hero() {
         )}
       </div>
 
+      <div className="hidden max-w-md flex-col text-cream-head md:flex">
+        <Image
+          src="/bloom/chars/together-welcome.png"
+          alt=""
+          width={707}
+          height={404}
+          sizes="240px"
+          className="h-auto w-56 lg:w-60"
+        />
+        <p className="mt-8 text-xs font-bold tracking-[0.2em] text-aqua">{ui.visit.popupName[lang]}</p>
+        <p className="mt-3 font-display text-4xl leading-tight break-keep lg:text-5xl">{COLLAB}</p>
+        <p className="mt-5 text-base leading-7 text-cream-head/80 lg:text-lg">{ui.hero.sideBody[lang]}</p>
+        <p className="mt-6 flex flex-wrap items-center gap-2 text-sm text-cream-head/80">
+          <span className="font-bold text-cream-head">{ui.visit.periodValue[lang]}</span>
+          <span className="rounded-full bg-limited px-2.5 py-0.5 text-[11px] font-bold text-ink">
+            {ui.visit.badge[lang]}
+          </span>
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href="#goods"
+            className="inline-flex min-h-12 items-center rounded-full border-2 border-cream-head/40 px-6 text-sm font-bold text-cream-head transition-colors hover:border-cream-head hover:bg-cream-head/10"
+          >
+            {ui.hero.sideGoods[lang]}
+          </a>
+          <a
+            href="#notify"
+            className="inline-flex min-h-12 items-center gap-2 rounded-full bg-pink px-6 text-sm font-bold text-white transition-colors hover:bg-pink-deep"
+          >
+            <BellIcon />
+            {ui.nav.notify[lang]}
+          </a>
+        </div>
+        <a href="#story" className="mt-12 inline-flex items-center gap-2 text-sm text-cream-head/70 hover:text-cream-head">
+          <svg viewBox="0 0 24 24" className="animate-bob size-5" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
+            <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {ui.hero.scroll[lang]}
+        </a>
+      </div>
+      </div>
+
       <a
         href="#story"
-        className="flex flex-col items-center gap-1 py-5 text-cream-head/90"
+        className="flex flex-col items-center gap-1 py-5 text-cream-head/90 md:hidden"
       >
         <span className="text-xs font-medium">{ui.hero.scroll[lang]}</span>
         <svg viewBox="0 0 24 24" className="animate-bob size-6" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>

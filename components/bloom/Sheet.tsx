@@ -4,16 +4,22 @@ import { useEffect, useRef } from "react";
 import { useBloom } from "./BloomContext";
 import { ui } from "@/lib/bloom/content";
 
-/** 모바일 하단 시트 형태의 상세정보 모달 (네이티브 dialog 사용) */
+/**
+ * 상세정보 모달 (네이티브 dialog 사용).
+ * 모바일: 화면 아래에서 올라오는 시트 / md 이상: 화면 가운데 팝업.
+ * size="lg"는 이미지와 정보를 좌우로 나누는 넓은 팝업.
+ */
 export function Sheet({
   open,
   onClose,
   labelledBy,
+  size = "md",
   children,
 }: {
   open: boolean;
   onClose: () => void;
   labelledBy: string;
+  size?: "md" | "lg";
   children: React.ReactNode;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -34,11 +40,13 @@ export function Sheet({
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="sheet m-0 mt-auto max-h-[92dvh] w-full max-w-[430px] overflow-hidden rounded-t-[28px] bg-cream-light p-0 text-ink shadow-2xl [margin-inline:auto] backdrop:backdrop-blur-[2px]"
+      className={`sheet m-0 mt-auto max-h-[92dvh] w-full max-w-[430px] overflow-hidden rounded-t-[28px] bg-cream-light p-0 text-ink shadow-2xl [margin-inline:auto] backdrop:backdrop-blur-[2px] md:my-auto md:max-h-[88dvh] md:rounded-[28px] ${
+        size === "lg" ? "md:max-w-4xl" : "md:max-w-2xl"
+      }`}
     >
-      <div className="max-h-[92dvh] overflow-y-auto overscroll-contain">
-        <div className="sticky top-0 z-10 flex items-center justify-between bg-cream-light/95 px-4 pt-3 pb-2 backdrop-blur">
-          <span aria-hidden className="mx-auto h-1.5 w-10 rounded-full bg-ink/15" />
+      <div className="max-h-[92dvh] overflow-y-auto overscroll-contain md:max-h-[88dvh]">
+        <div className="sticky top-0 z-10 flex items-center justify-between bg-cream-light/95 px-4 pt-3 pb-2 backdrop-blur md:h-14 md:pt-0 md:pb-0">
+          <span aria-hidden className="mx-auto h-1.5 w-10 rounded-full bg-ink/15 md:hidden" />
           <button
             type="button"
             onClick={onClose}

@@ -41,6 +41,12 @@ export const ui = {
       en: "Autoplay is unavailable, so we're showing the key visual.",
     },
     scroll: { ko: "아래로 스크롤해서 더 알아보기", en: "Scroll to discover more" },
+    // 데스크톱 영상 옆 안내 패널 (영상 속 슬로건은 반복하지 않는다)
+    sideBody: {
+      ko: "제주 동백마을에서 피어난 협업 한정판 굿즈와 마을 체험을 만나 보세요.",
+      en: "Limited collab goods and village experiences, blooming in Jeju's Dongbaek Village.",
+    },
+    sideGoods: { ko: "한정판 굿즈 보기", en: "See limited goods" },
   },
   story: {
     eyebrow: { ko: "COLLABORATION", en: "COLLABORATION" },
