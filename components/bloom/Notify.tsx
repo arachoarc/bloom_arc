@@ -5,14 +5,15 @@ import { useRef, useState } from "react";
 import { useBloom } from "./BloomContext";
 import { BellIcon, Eyebrow, PrimaryButton } from "./parts";
 import { ui } from "@/lib/bloom/content";
+import VisitPanel from "./Visit";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /** 콜라보 섹션과 같은 글로우 그래픽 (가장자리 장식) */
 const GLOWS = [
-  { src: "/bloom/collab/aqua-flower.png", w: 348, h: 341, cls: "top-4 right-4 w-10 md:top-10 md:right-[6%] md:w-16", delay: 0 },
-  { src: "/bloom/collab/pink-flower.png", w: 358, h: 355, cls: "bottom-4 left-3 w-9 md:bottom-12 md:left-[4%] md:w-14", delay: 1.4 },
-  { src: "/bloom/collab/seed.png", w: 323, h: 324, cls: "right-6 bottom-6 hidden w-12 md:block md:right-[8%] md:bottom-14", delay: 0.8 },
+  { src: "/bloom/collab/aqua-flower.png", w: 348, h: 341, cls: "top-4 right-4 w-10 lg:top-10 lg:right-[6%] lg:w-16", delay: 0 },
+  { src: "/bloom/collab/pink-flower.png", w: 358, h: 355, cls: "bottom-4 left-3 w-9 lg:bottom-12 lg:left-[4%] lg:w-14", delay: 1.4 },
+  { src: "/bloom/collab/seed.png", w: 323, h: 324, cls: "right-6 bottom-6 hidden w-12 lg:block lg:right-[8%] lg:bottom-14", delay: 0.8 },
 ] as const;
 
 /** 콜라보 굿즈 출시 알림 신청 (프로토타입: 이메일 저장·발송 없음) */
@@ -78,9 +79,14 @@ export default function Notify() {
         />
       ))}
 
-      <div className="relative">
+      {/*
+        알림받기(메인, 넓은 칸) + 찾아오는 방법(보조, 좁은 칸).
+        lg(1024px) 이상 나란히, 그 아래는 알림받기 → 찾아오는 방법 순서로 쌓는다.
+      */}
+      <div className="relative mx-auto max-w-6xl lg:grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-start lg:gap-12">
+        <div>
         {done ? (
-          <div className="flex flex-col items-center text-center md:mx-auto md:max-w-xl">
+          <div className="flex flex-col items-center text-center">
             <div className="relative w-full rounded-[32px] bg-cream px-5 pt-8 pb-7 text-ink">
               <Image
                 src="/bloom/chars/together-welcome.png"
@@ -123,18 +129,16 @@ export default function Notify() {
             </div>
           </div>
         ) : (
-          <div className="md:mx-auto md:grid md:max-w-5xl md:grid-cols-2 md:items-center md:gap-16">
-            <div>
-              <Eyebrow tone="light">{n.eyebrow[lang]}</Eyebrow>
-              <h2 id="notify-title" className="neon-text mt-3 font-display text-[28px] leading-tight text-cream-head md:text-4xl">
-                {n.title[lang]}
-              </h2>
-            </div>
+          <div>
+            <Eyebrow tone="light">{n.eyebrow[lang]}</Eyebrow>
+            <h2 id="notify-title" className="neon-text mt-3 font-display text-[28px] leading-tight text-cream-head md:text-4xl lg:text-5xl">
+              {n.title[lang]}
+            </h2>
 
             <form
               onSubmit={onSubmit}
               noValidate
-              className="mt-7 rounded-[28px] bg-cream-light p-5 text-ink shadow-xl md:mt-0 md:rounded-[32px] md:p-8"
+              className="mt-7 rounded-[28px] bg-cream-light p-5 text-ink shadow-xl md:mt-8 md:rounded-[32px] md:p-8"
             >
               <p className="text-sm font-bold text-ink/80">{n.pick[lang]}</p>
               {/* 알림은 콜라보 굿즈 출시 소식 한 가지 */}
@@ -188,6 +192,12 @@ export default function Notify() {
             </form>
           </div>
         )}
+        </div>
+
+        {/* 보조: 동백마을 찾아오는 방법 */}
+        <div className="mt-10 lg:mt-32">
+          <VisitPanel />
+        </div>
       </div>
     </section>
   );

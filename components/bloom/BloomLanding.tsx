@@ -8,7 +8,6 @@ import Collab from "./Collab";
 import Story from "./Story";
 import Goods from "./Goods";
 import Experiences from "./Experiences";
-import Visit from "./Visit";
 import Notify from "./Notify";
 import { COLLAB, ui } from "@/lib/bloom/content";
 
@@ -25,7 +24,6 @@ export default function BloomLanding({ authMenu }: { authMenu?: React.ReactNode 
           <Experiences />
           <Goods />
           <Notify />
-          <Visit />
         </main>
         <Footer />
       </div>
