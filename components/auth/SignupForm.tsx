@@ -4,7 +4,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { PrimaryButton } from "@/components/bloom/parts";
 import { createClient } from "@/utils/supabase/client";
-import { Field, FormError } from "./fields";
+import { Field, FormError, withTimeout } from "./fields";
+
+const FAILED = "회원가입에 실패했습니다. 페이지를 새로고침한 뒤 다시 시도해 주세요.";
 
 function signupErrorMessage(code: string | undefined) {
   switch (code) {
@@ -16,7 +18,7 @@ function signupErrorMessage(code: string | undefined) {
     case "email_address_invalid":
       return "이메일 형식을 확인해 주세요.";
     default:
-      return "회원가입에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+      return FAILED;
   }
 }
 
@@ -40,21 +42,29 @@ export default function SignupForm() {
     setPending(true);
     setError(null);
 
-    // 닉네임은 user metadata로 보내고, DB 트리거가 profiles에 넣는다.
-    const { data, error } = await createClient().auth.signUp({
-      email,
-      password,
-      options: { data: { nickname } },
-    });
+    try {
+      // 닉네임은 user metadata로 보내고, DB 트리거가 profiles에 넣는다.
+      const { data, error } = await withTimeout(
+        createClient().auth.signUp({
+          email,
+          password,
+          options: { data: { nickname } },
+        }),
+      );
 
-    if (error || !data.session) {
+      if (error || !data.session) {
+        setPending(false);
+        setError(error ? signupErrorMessage(error.code) : FAILED);
+        return;
+      }
+
+      router.push("/");
+      router.refresh();
+    } catch {
+      // 네트워크 끊김·응답 없음 등: 버튼이 "가입하는 중"에 멈추지 않게 되돌린다.
       setPending(false);
-      setError(error ? signupErrorMessage(error.code) : "회원가입에 실패했습니다. 잠시 후 다시 시도해 주세요.");
-      return;
+      setError(FAILED);
     }
-
-    router.push("/");
-    router.refresh();
   }
 
   return (

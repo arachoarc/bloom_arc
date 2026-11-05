@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { PrimaryButton } from "@/components/bloom/parts";
 import { createClient } from "@/utils/supabase/client";
-import { Field, FormError } from "./fields";
+import { Field, FormError, withTimeout } from "./fields";
 
 const LOGIN_FAILED = "이메일 또는 비밀번호가 틀렸습니다";
 
@@ -22,16 +22,24 @@ export default function LoginForm() {
     setPending(true);
     setError(null);
 
-    const { error } = await createClient().auth.signInWithPassword({ email, password });
+    try {
+      const { error } = await withTimeout(
+        createClient().auth.signInWithPassword({ email, password }),
+      );
 
-    if (error) {
+      if (error) {
+        setPending(false);
+        setError(LOGIN_FAILED);
+        return;
+      }
+
+      router.push("/");
+      router.refresh();
+    } catch {
+      // 응답이 없을 때 버튼이 "로그인하는 중"에 멈추지 않게 되돌린다.
       setPending(false);
-      setError(LOGIN_FAILED);
-      return;
+      setError("로그인하지 못했습니다. 페이지를 새로고침한 뒤 다시 시도해 주세요.");
     }
-
-    router.push("/");
-    router.refresh();
   }
 
   return (
