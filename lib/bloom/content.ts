@@ -16,6 +16,7 @@ export const MAP_LINKS = {
 
 export const ui = {
   nav: {
+    collab: { ko: "콜라보", en: "Collab" },
     story: { ko: "동백마을", en: "Village" },
     goods: { ko: "굿즈", en: "Goods" },
     experiences: { ko: "체험", en: "Experiences" },
@@ -47,6 +48,25 @@ export const ui = {
       en: "Limited collab goods and village experiences, blooming in Jeju's Dongbaek Village.",
     },
     sideGoods: { ko: "한정판 굿즈 보기", en: "See limited goods" },
+  },
+  // 동백마을 X A2O LITE 콜라보 소개 (KV 바로 아래 첫 섹션, 동백숲 배경)
+  collab: {
+    eyebrow: { ko: "COLLABORATION", en: "COLLABORATION" },
+    title: { ko: "NEON처럼 빛나는 동백숲", en: "A camellia forest glowing like NEON" },
+    lines: [
+      { ko: "각자의 색으로 빛나는 A2O LITE가", en: "A2O LITE, each shining in their own color," },
+      { ko: "저마다의 색으로 피는 동백숲을 만나", en: "meets a camellia forest where every flower blooms in its own color —" },
+      { ko: "NEON처럼 빛난다.", en: "and together, they glow like NEON." },
+    ],
+    goodsTitle: { ko: "굿즈에 피어난 콜라보 그래픽", en: "Collab graphics, blooming on the goods" },
+    goodsSub: {
+      ko: "이 그래픽들이 동백마을 X A2O LITE 한정판 굿즈 3종에 그대로 담겼어요.",
+      en: "These graphics are carried straight onto the three limited 동백마을 X A2O LITE goods.",
+    },
+    forestAlt: {
+      ko: "붉은 동백과 흰 동백이 피어 있는 동백나무 숲",
+      en: "A camellia forest blooming with red and white camellias",
+    },
   },
   story: {
     eyebrow: { ko: "DONGBAEK VILLAGE", en: "DONGBAEK VILLAGE" },

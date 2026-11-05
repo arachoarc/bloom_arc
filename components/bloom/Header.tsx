@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useBloom } from "./BloomContext";
 import { ui } from "@/lib/bloom/content";
 
-const NAV = ["story", "goods", "experiences", "visit", "notify"] as const;
+const NAV = ["collab", "story", "goods", "experiences", "visit", "notify"] as const;
 
 export default function Header({ authMenu }: { authMenu?: React.ReactNode }) {
   const { lang, setLang } = useBloom();

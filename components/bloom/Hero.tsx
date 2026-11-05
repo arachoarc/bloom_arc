@@ -184,7 +184,7 @@ export default function Hero() {
                 {ui.nav.notify[lang]}
               </a>
             </div>
-            <a href="#story" className="inline-flex items-center gap-2 text-sm text-cream-head/70 hover:text-cream-head">
+            <a href="#collab" className="inline-flex items-center gap-2 text-sm text-cream-head/70 hover:text-cream-head">
               <svg viewBox="0 0 24 24" className="animate-bob size-5" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
                 <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -195,7 +195,7 @@ export default function Hero() {
       </div>
 
       <a
-        href="#story"
+        href="#collab"
         className="flex flex-col items-center gap-1 py-5 text-cream-head/90 md:hidden"
       >
         <span className="text-xs font-medium">{ui.hero.scroll[lang]}</span>

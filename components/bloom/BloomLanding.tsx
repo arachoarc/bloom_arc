@@ -4,6 +4,7 @@ import Image from "next/image";
 import { BloomProvider, useBloom } from "./BloomContext";
 import Header from "./Header";
 import Hero from "./Hero";
+import Collab from "./Collab";
 import Story from "./Story";
 import Goods from "./Goods";
 import Experiences from "./Experiences";
@@ -19,6 +20,7 @@ export default function BloomLanding({ authMenu }: { authMenu?: React.ReactNode 
         <Header authMenu={authMenu} />
         <main>
           <Hero />
+          <Collab />
           <Story />
           <Goods />
           <Experiences />

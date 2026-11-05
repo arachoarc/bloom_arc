@@ -47,6 +47,34 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* 콜라보 섹션: NEON처럼 빛나는 효과 (브랜드 청록·핑크만 사용) */
+.neon-text {
+  text-shadow:
+    0 0 10px rgb(249 51 136 / 0.55),
+    0 0 28px rgb(249 51 136 / 0.35);
+}
+/* 콜라보 글로우 그래픽: 천천히 떠오르며 은은하게 깜빡인다 (그래픽 자체에 빛 번짐이 있음) */
+.glow-float {
+  opacity: 0.9;
+  animation: glow-float 6s ease-in-out infinite;
+}
+@keyframes glow-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 0.6;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow-float {
+    animation: none;
+  }
+}
+
 /* 한국어 제목이 단어 중간에서 줄바꿈되지 않게 한다 */
 h1,
 h2,
