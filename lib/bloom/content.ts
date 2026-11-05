@@ -16,7 +16,7 @@ export const MAP_LINKS = {
 
 export const ui = {
   nav: {
-    story: { ko: "콜라보", en: "Collab" },
+    story: { ko: "동백마을", en: "Village" },
     goods: { ko: "굿즈", en: "Goods" },
     experiences: { ko: "체험", en: "Experiences" },
     visit: { ko: "방문 안내", en: "Visit" },
@@ -49,15 +49,16 @@ export const ui = {
     sideGoods: { ko: "한정판 굿즈 보기", en: "See limited goods" },
   },
   story: {
-    eyebrow: { ko: "COLLABORATION", en: "COLLABORATION" },
+    eyebrow: { ko: "DONGBAEK VILLAGE", en: "DONGBAEK VILLAGE" },
+    place: { ko: "제주 · 동백마을", en: "Jeju · Dongbaek Village" },
     title: { ko: "FIND YOUR BLOOM.", en: "FIND YOUR BLOOM." },
     lead: {
       ko: "제주에서 너만의 동백을 발견해.",
       en: "Discover your own camellia in Jeju.",
     },
     body: {
-      ko: "제주 동백마을과 A2O LITE가 만났어요. 겨울에도 피어나는 동백처럼, 누구나 자기만의 속도와 방식으로 피어날 수 있다는 이야기를 마을의 숲과 함께 전합니다.",
-      en: "Jeju's Dongbaek Village meets A2O LITE. Like the camellia that blooms even in winter, we believe everyone can bloom at their own pace — and we tell that story with the village forest.",
+      ko: "동백마을은 겨울이면 마을 곳곳에 붉은 동백이 피어나는 제주의 작은 마을이에요. 꽃이 진 자리에 맺힌 씨앗을 모아 오일로 만들며, 동백과 함께 계절을 보내 왔어요. 숲길을 걷고, 꽃잎차를 마시고, 씨앗을 고르며 너만의 속도로 머물러 봐.",
+      en: "Dongbaek Village is a small Jeju village where red camellias bloom all around in winter. Villagers gather the seeds left behind by fallen flowers and press them into oil, living each season alongside the camellia. Walk the forest paths, sip petal tea, sort seeds — and stay at your own pace.",
     },
     meaningTitle: {
       ko: "동백이 피어나는 세 가지 모습",
@@ -88,9 +89,9 @@ export const ui = {
       },
       {
         key: "oil",
-        img: "/bloom/goods/oil.png",
-        w: 1312,
-        h: 1199,
+        img: "/bloom/gfx/oil-drop.png",
+        w: 360,
+        h: 480,
         name: { ko: "동백오일", en: "Camellia oil" },
         desc: {
           ko: "씨앗을 짜서 얻는 오일. 마을이 오랫동안 이어 온 동백의 손길을 전해요.",
@@ -98,12 +99,43 @@ export const ui = {
         },
       },
     ],
-    guide: {
-      ko: "안녕! 나는 피오, 옆은 토리야. 동백마을을 함께 안내할게.",
-      en: "Hi! I'm Pio, and this is Tori. We'll show you around Dongbaek Village.",
+    // 피오·토리 소개 (resources/characters_png/characters_story.png 스토리 기준)
+    friends: {
+      title: { ko: "동백마을의 다정한 두 친구", en: "Two friendly faces of Dongbaek Village" },
+      sub: {
+        ko: "마을에 온 너를 피오와 토리가 함께 안내해.",
+        en: "Pio and Tori will show you around the village together.",
+      },
+      traitsLabel: { ko: "이렇게 알아봐", en: "How to spot" },
+      pio: {
+        name: { ko: "동백꽃 피오", en: "Pio the Camellia" },
+        tagline: { ko: "너의 방식대로 피어나는 친구", en: "The friend who blooms in their own way" },
+        intro: {
+          ko: "마을에 온 너를 가장 먼저 반기고, 가고 싶은 곳으로 길을 안내해.",
+          en: "First to greet you in the village, and always ready to show you the way.",
+        },
+        traits: [
+          { ko: "다섯 잎 구름 모양의 분홍 동백꽃", en: "A pink, five-petal cloud-shaped camellia" },
+          { ko: "머리 왼쪽 위의 연두색 잎", en: "A lime leaf on the top-left of the head" },
+          { ko: "몸에 스친 민트색 붓자국", en: "Mint brush strokes across the body" },
+        ],
+        alt: { ko: "꽃 향기를 맡는 동백꽃 피오", en: "Pio the Camellia smelling a flower" },
+      },
+      tori: {
+        name: { ko: "동백씨앗 토리", en: "Tori the Camellia Seed" },
+        tagline: { ko: "작은 가능성을 발견하는 친구", en: "The friend who finds small possibilities" },
+        intro: {
+          ko: "피오 곁에서 마을 곳곳의 작은 발견을 놓치지 않아.",
+          en: "Right by Pio's side, never missing a small discovery around the village.",
+        },
+        traits: [
+          { ko: "주황색 타원형 동백씨앗", en: "An orange, oval camellia seed" },
+          { ko: "몸을 가로지르는 대각선 줄무늬", en: "Diagonal stripes across the body" },
+          { ko: "머리 오른쪽 위의 분홍 꽃", en: "A pink flower on the top-right of the head" },
+        ],
+        alt: { ko: "환하게 웃는 동백씨앗 토리", en: "Tori the Camellia Seed smiling" },
+      },
     },
-    pioAlt: { ko: "인사하는 피오", en: "Pio waving hello" },
-    toriAlt: { ko: "미소 짓는 토리", en: "Tori smiling" },
   },
   goods: {
     eyebrow: { ko: "LIMITED GOODS", en: "LIMITED GOODS" },

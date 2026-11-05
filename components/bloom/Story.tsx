@@ -2,16 +2,36 @@
 
 import Image from "next/image";
 import { useBloom } from "./BloomContext";
-import { COLLAB, ui } from "@/lib/bloom/content";
-import { Duo, Eyebrow } from "./parts";
+import { ui } from "@/lib/bloom/content";
+import { Eyebrow } from "./parts";
+
+// 피오(메인) 몸 높이 기준. 토리는 가이드대로 피오의 약 70%.
+const PIO_H = { base: "h-[150px]", md: "md:h-[220px]" };
+const TORI_H = { base: "h-[105px]", md: "md:h-[154px]" };
 
 export default function Story() {
   const { lang } = useBloom();
   const s = ui.story;
+  const f = s.friends;
+
+  const friends = [
+    {
+      key: "pio",
+      data: f.pio,
+      img: { src: "/bloom/chars/pio-smell.png", w: 368, h: 374, cls: `${PIO_H.base} ${PIO_H.md}` },
+      dot: "bg-pink",
+    },
+    {
+      key: "tori",
+      data: f.tori,
+      img: { src: "/bloom/chars/tori-smile.png", w: 300, h: 354, cls: `${TORI_H.base} ${TORI_H.md}` },
+      dot: "bg-seed",
+    },
+  ] as const;
 
   return (
     <section id="story" aria-labelledby="story-title" className="relative overflow-hidden bg-forest">
-      {/* 숲 분위기 영역 */}
+      {/* 숲 분위기 영역: 동백마을 소개 */}
       <div className="relative px-5 pt-14 pb-28 text-cream-head md:px-10 md:pt-24 md:pb-40">
         <Image
           src="/bloom/gfx/aqua-line-flower.png"
@@ -30,7 +50,7 @@ export default function Story() {
         <div className="relative mx-auto max-w-6xl md:grid md:grid-cols-2 md:items-end md:gap-16">
           <div>
             <Eyebrow tone="light">{s.eyebrow[lang]}</Eyebrow>
-            <p className="mt-3 text-sm font-bold tracking-wide text-cream-head md:text-base">{COLLAB}</p>
+            <p className="mt-3 text-sm font-bold tracking-wide text-cream-head md:text-base">{s.place[lang]}</p>
             <h2 id="story-title" className="mt-2 font-display text-[40px] leading-[1.05] text-pink md:text-7xl">
               {s.title[lang]}
             </h2>
@@ -72,15 +92,40 @@ export default function Story() {
             ))}
           </ul>
 
-          <div className="mt-8 flex items-end gap-3 rounded-3xl bg-cream-light p-4 md:mx-auto md:mt-12 md:max-w-2xl md:gap-6 md:p-6">
-            <Duo
-              pio={{ src: "/bloom/chars/pio-welcome.png", w: 421, h: 401, alt: s.pioAlt[lang] }}
-              tori={{ src: "/bloom/chars/tori-smile.png", w: 300, h: 354, alt: s.toriAlt[lang] }}
-              height={104}
-            />
-            <p className="relative mb-6 flex-1 rounded-2xl rounded-bl-sm bg-white px-3.5 py-3 text-[13px] leading-5 font-medium text-ink shadow-sm md:px-5 md:py-4 md:text-base md:leading-7">
-              {s.guide[lang]}
-            </p>
+          {/* 피오·토리 소개 */}
+          <div className="mt-12 rounded-[32px] bg-cream-light px-4 pt-8 pb-6 md:mt-16 md:px-10 md:pt-12 md:pb-10">
+            <h3 className="text-center font-display text-2xl text-ink md:text-3xl">{f.title[lang]}</h3>
+            <p className="mt-2 text-center text-[13px] text-ink/65 md:text-base">{f.sub[lang]}</p>
+
+            <div className="mx-auto mt-6 grid max-w-3xl grid-cols-2 md:mt-10">
+              {friends.map(({ key, data, img, dot }) => (
+                <article key={key} className="flex flex-col px-1.5 md:px-6">
+                  {/* 같은 바닥선 위에 서도록 피오 높이로 칸을 맞추고 아래 정렬 */}
+                  <div className={`flex items-end justify-center border-b-2 border-dashed border-ink/25 pb-1 ${PIO_H.base} ${PIO_H.md}`}>
+                    <Image
+                      src={img.src}
+                      alt={data.alt[lang]}
+                      width={img.w}
+                      height={img.h}
+                      sizes="(min-width: 768px) 240px, 160px"
+                      className={`w-auto ${img.cls}`}
+                    />
+                  </div>
+                  <h4 className="mt-4 md:mt-6 font-display text-lg leading-tight break-keep text-ink md:text-3xl">{data.name[lang]}</h4>
+                  <p className="mt-1 text-[13px] leading-5 font-bold text-ink/80 md:mt-2 md:text-base">{data.tagline[lang]}</p>
+                  <p className="mt-2 text-[12px] leading-5 text-ink/70 md:text-sm md:leading-6">{data.intro[lang]}</p>
+                  <p className="mt-4 text-[11px] font-bold tracking-wider text-ink/45 md:text-xs">{f.traitsLabel[lang]}</p>
+                  <ul className="mt-1.5 space-y-1">
+                    {data.traits.map((t) => (
+                      <li key={t.en} className="flex gap-1.5 text-[12px] leading-5 text-ink/75 md:text-sm md:leading-6">
+                        <span aria-hidden className={`mt-[7px] size-1.5 shrink-0 rounded-full md:mt-2.5 ${dot}`} />
+                        {t[lang]}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </div>
