@@ -58,10 +58,10 @@ export const ui = {
       { ko: "저마다의 색으로 피는 동백숲을 만나", en: "meets a camellia forest where every flower blooms in its own color —" },
       { ko: "NEON처럼 빛난다.", en: "and together, they glow like NEON." },
     ],
-    goodsTitle: { ko: "굿즈에 피어난 콜라보 그래픽", en: "Collab graphics, blooming on the goods" },
+    goodsTitle: { ko: "굿즈에 피어난 콜라보 NEON 그래픽", en: "Collab NEON graphics, blooming on the goods" },
     goodsSub: {
-      ko: "이 그래픽들이 동백마을 X A2O LITE 한정판 굿즈 3종에 그대로 담겼어요.",
-      en: "These graphics are carried straight onto the three limited 동백마을 X A2O LITE goods.",
+      ko: "이 그래픽들이 동백마을 X A2O LITE 한정판 굿즈에 그대로 담겼어요.",
+      en: "These graphics are carried straight onto the limited 동백마을 X A2O LITE goods.",
     },
     forestAlt: {
       ko: "붉은 동백과 흰 동백이 피어 있는 동백나무 숲",

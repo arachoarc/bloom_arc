@@ -10,7 +10,6 @@ const G = {
   aqua: { src: "/bloom/collab/aqua.png", w: 245, h: 374 },
   aquaFlower: { src: "/bloom/collab/aqua-flower.png", w: 348, h: 341 },
   flower: { src: "/bloom/collab/flower.png", w: 282, h: 276 },
-  ring: { src: "/bloom/collab/flower-ring.png", w: 343, h: 308 },
   leaf: { src: "/bloom/collab/leaf.png", w: 305, h: 295 },
   pink: { src: "/bloom/collab/pink-flower.png", w: 358, h: 355 },
   seed: { src: "/bloom/collab/seed.png", w: 323, h: 324 },
@@ -35,7 +34,6 @@ const SPRAY: [Gfx, Place, string, number][] = [
   [G.flower, { left: "500px", top: "34%" }, "w-8", 0.3],
   [G.aqua, { left: "560px", top: "29%" }, "w-6", 2.9],
   [G.aquaFlower, { left: "540px", top: "46%" }, "w-12", 1.7],
-  [G.ring, { left: "620px", top: "38%" }, "w-24", 1.4],
   [G.aqua, { right: "2%", top: "28%" }, "w-8", 2.6],
   [G.flower, { right: "12%", top: "29%" }, "w-36", 1.9],
   [G.leaf, { right: "1%", top: "46%" }, "w-24", 1.2],
@@ -43,7 +41,6 @@ const SPRAY: [Gfx, Place, string, number][] = [
   [G.pink, { left: "500px", top: "66%" }, "w-10", 2.4],
   [G.seed, { left: "250px", top: "91%" }, "w-8", 1.1],
   [G.seed, { left: "560px", top: "78%" }, "w-16", 0.1],
-  [G.ring, { right: "18%", top: "62%" }, "w-32", 2.3],
   [G.pink, { right: "2%", top: "76%" }, "w-20", 0.7],
 ];
 
@@ -54,13 +51,11 @@ const BAND_TOP: Spot[] = [
   [G.seed, "28%", "50%", "w-7 md:w-10", 2.5],
   [G.pink, "44%", "6%", "w-16 md:w-20", 0.9],
   [G.aquaFlower, "66%", "40%", "w-11 md:w-16", 2.1],
-  [G.ring, "81%", "0%", "w-16 md:w-24", 1.3],
 ];
 const BAND_MID: Spot[] = [
   [G.leaf, "0%", "6%", "w-8 md:w-10", 0.4],
   [G.aquaFlower, "14%", "40%", "w-12 md:w-16", 1.8],
   [G.flower, "34%", "8%", "w-6 md:w-9", 2.7],
-  [G.ring, "46%", "32%", "w-20 md:w-28", 0.6],
   [G.aqua, "70%", "4%", "w-5 md:w-7", 2.2],
   [G.pink, "80%", "38%", "w-14 md:w-20", 1.0],
 ];
@@ -125,6 +120,19 @@ function InlineGlow({
   );
 }
 
+/** 문장 속 "A2O LITE"만 브랜드 핑크로 */
+function highlightA2O(text: string) {
+  return text.split(/(A2O LITE)/).map((part, i) =>
+    part === "A2O LITE" ? (
+      <span key={i} className="text-pink">
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
+}
+
 /** 동백마을 X A2O LITE 콜라보 소개: 동백숲 배경 + 글로우 그래픽 + 이야기 + 굿즈 연결 */
 export default function Collab() {
   const { lang } = useBloom();
@@ -181,8 +189,8 @@ export default function Collab() {
           </h2>
           <p className="mt-6 space-y-1 font-display text-lg leading-relaxed md:mt-8 md:text-2xl md:leading-relaxed lg:max-w-[30rem]">
             {c.lines.map((l, i) => (
-              <span key={l.en} className={`block ${i === lastLine ? "neon-text text-pink" : "text-cream-head/90"}`}>
-                {l[lang]}
+              <span key={l.en} className={`block ${i === lastLine ? "neon-text text-white" : "text-cream-head/90"}`}>
+                {highlightA2O(l[lang])}
                 {i === 0 && <InlineGlow g={G.aqua} size="ml-2 w-3 md:w-4" delay={2.2} />}
                 {i === lastLine && (
                   <>
