@@ -28,7 +28,7 @@ export default function Story() {
           className="pointer-events-none absolute bottom-10 -left-6 w-24 opacity-70"
         />
         <Eyebrow tone="light">{s.eyebrow[lang]}</Eyebrow>
-        <p className="mt-3 text-sm font-bold tracking-wide text-lime">{COLLAB}</p>
+        <p className="mt-3 text-sm font-bold tracking-wide text-cream-head">{COLLAB}</p>
         <h2 id="story-title" className="mt-2 font-display text-[40px] leading-[1.05] text-pink">
           {s.title[lang]}
         </h2>
