@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useBloom } from "./BloomContext";
-import { COLLAB, ui } from "@/lib/bloom/content";
+import { ui } from "@/lib/bloom/content";
 
 const NAV = ["story", "goods", "experiences", "visit", "notify"] as const;
 
@@ -16,7 +16,7 @@ export default function Header({ authMenu }: { authMenu?: React.ReactNode }) {
       <div className="mx-auto flex max-w-6xl flex-wrap items-center lg:h-16 lg:flex-nowrap lg:gap-6 lg:px-6">
         <a
           href="#top"
-          className="flex h-14 items-center gap-2 pl-4 lg:h-auto lg:shrink-0"
+          className="flex h-14 items-center pl-4 lg:h-auto lg:shrink-0"
           aria-label="bl✿om! — BLOOM YOUR WAY"
         >
           <Image
@@ -24,10 +24,10 @@ export default function Header({ authMenu }: { authMenu?: React.ReactNode }) {
             alt="bl✿om!"
             width={2172}
             height={724}
-            className="h-7 w-auto lg:h-8"
+            sizes="(min-width: 1024px) 132px, 120px"
+            className="h-10 w-auto lg:h-11"
             preload
           />
-          <span className="text-[10px] font-bold tracking-tight text-ink/60 lg:text-[11px]">{COLLAB}</span>
         </a>
 
         <div
