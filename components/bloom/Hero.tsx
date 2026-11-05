@@ -44,7 +44,7 @@ export default function Hero() {
         <video
           ref={video}
           className="absolute inset-0 size-full object-cover"
-          src="/bloom/video/kv.mp4"
+          src="/bloom/video/kv-v2.mp4"
           poster={POSTER}
           muted
           loop

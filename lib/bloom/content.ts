@@ -334,7 +334,7 @@ export const experiences: Experience[] = [
   {
     id: "tea",
     topic: "experience",
-    img: "/bloom/exp/tea.png",
+    img: "/bloom/exp/tea-v2.png",
     alt: {
       ko: "동백 숲이 보이는 방에서 피오·토리와 함께 동백꽃잎차를 마시며 명상하는 모습",
       en: "Meditating with camellia petal tea beside Pio and Tori, facing a camellia forest",
@@ -355,10 +355,10 @@ export const experiences: Experience[] = [
   {
     id: "oil",
     topic: "experience",
-    img: "/bloom/exp/oil.png",
+    img: "/bloom/exp/oil-v2.png",
     alt: {
-      ko: "피오·토리와 함께 동백오일을 만드는 체험 장면",
-      en: "Making camellia oil together with Pio and Tori",
+      ko: "동백나무 아래 테이블에서 피오·토리와 함께 동백씨앗을 고르는 동백오일 만들기 체험 장면",
+      en: "Sorting camellia seeds with Pio and Tori at a table under camellia trees, for oil making",
     },
     name: { ko: "동백오일 만들기", en: "Camellia Oil Making" },
     short: {

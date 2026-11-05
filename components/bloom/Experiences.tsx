@@ -29,7 +29,7 @@ export default function Experiences() {
               onClick={() => setOpenId(x.id)}
               className="group block w-full overflow-hidden rounded-[28px] bg-cream-light text-left ring-1 ring-ink/5"
             >
-              <div className="relative aspect-[1671/941] w-full">
+              <div className="relative aspect-[1670/941] w-full">
                 <Image
                   src={x.img}
                   alt={x.alt[lang]}
@@ -62,7 +62,7 @@ export default function Experiences() {
       <Sheet open={!!item} onClose={() => setOpenId(null)} labelledBy="exp-sheet-title">
         {item && (
           <article className="px-5 pb-8">
-            <div className="relative aspect-[1671/941] w-full overflow-hidden rounded-3xl">
+            <div className="relative aspect-[1670/941] w-full overflow-hidden rounded-3xl">
               <Image
                 src={item.img}
                 alt={item.alt[lang]}
