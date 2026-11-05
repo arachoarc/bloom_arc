@@ -1,0 +1,117 @@
+/* 피라미드 컴포넌트
+   원본: app/template/pyramid/style.css (디자인 시안 수치)
+   전체 크기 447 x 414 */
+
+.root {
+  --pyramid-dark: #282d46;
+  --pyramid-light: #cbd4dc;
+  --pyramid-primary: #188aec;
+  --pyramid-extra-light: #f6fafe;
+
+  width: 447px;
+  max-width: 100%;
+  color: var(--pyramid-dark);
+}
+
+/* 제목 "Maslow Pyramid" */
+.title {
+  margin: 0 0 25px 20px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 182.6%;
+}
+
+.body {
+  display: flex;
+  align-items: stretch;
+  height: 342px;
+}
+
+/* 왼쪽 회색 삼각형 (Vector 206: 170 x 342) */
+.triangle {
+  flex: 0 0 170px;
+  background: var(--pyramid-light);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.list {
+  display: flex;
+  flex: 0 0 239px;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 각 단계 (구분선: 233px, 2px, #CBD4DC 40%) */
+.item {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-left: 6px;
+  border-top: 2px solid rgb(203 212 220 / 0.4);
+}
+
+.item:last-child {
+  border-bottom: 2px solid rgb(203 212 220 / 0.4);
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 27px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--pyramid-primary);
+  outline-offset: -2px;
+}
+
+/* 선택된 단계 (Rectangle 190 + Vector 207) */
+.active {
+  position: relative;
+  flex: 0 0 69px;
+  margin-left: 0;
+  border-top-color: transparent;
+  border-radius: 0 10px 10px 0;
+  background: var(--pyramid-primary);
+}
+
+.active + .item {
+  border-top-color: transparent;
+}
+
+.active:last-child {
+  border-bottom-color: transparent;
+}
+
+/* 왼쪽으로 튀어나온 화살표 */
+.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -24px;
+  width: 24px;
+  height: 100%;
+  background: var(--pyramid-primary);
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+.active .button {
+  padding: 0;
+  color: var(--pyramid-extra-light);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 182.6%;
+  text-align: center;
+  cursor: default;
+}
