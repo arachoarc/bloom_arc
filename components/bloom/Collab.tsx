@@ -214,7 +214,7 @@ export default function Collab() {
           <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
             <a
               href="#goods"
-              className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-pink px-6 text-sm font-bold text-white transition-colors hover:bg-pink-deep"
+              className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-white px-6 text-sm font-bold text-ink transition-colors hover:bg-cream-head"
             >
               {ui.hero.sideGoods[lang]}
               <span aria-hidden>→</span>
