@@ -44,12 +44,12 @@ export default function Story() {
             <p className="mt-5 text-[15px] leading-7 text-cream-head/80 md:text-base md:leading-8">{s.body[lang]}</p>
 
             <div className="mt-4 md:mt-5">
-              <p className="text-[13px] text-cream-head/70 md:text-sm">{f.sub[lang]}</p>
+              <p className="text-[13px] font-bold text-cream-head/90 md:text-sm">{f.sub[lang]}</p>
               <ul className="mt-3 space-y-2">
                 {friends.map(({ key, data }) => (
                   <li key={key} className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
-                    <span className="font-display text-sm text-cream-head">{data.name[lang]}</span>
-                    <span className="text-xs font-bold text-pink">{data.tagline[lang]}</span>
+                    <span className="font-display text-sm text-pink">{data.name[lang]}</span>
+                    <span className="text-xs text-cream-head/80">{data.tagline[lang]}</span>
                   </li>
                 ))}
               </ul>
@@ -64,14 +64,14 @@ export default function Story() {
   );
 }
 
-/** 제주 돌담 위에 앉아 인사하는 피오·토리 일러스트 */
+/** 제주 돌담 위 피오·토리 일러스트 */
 function FriendsImage({ alt, className }: { alt: string; className: string }) {
   return (
     <div
-      className={`relative aspect-[1670/942] overflow-hidden rounded-[28px] ring-1 ring-cream-head/10 md:rounded-[36px] ${className}`}
+      className={`relative aspect-[1670/942] overflow-hidden rounded-[28px] md:rounded-[36px] ${className}`}
     >
       <Image
-        src="/bloom/chars/friends-stonewall-v2.jpg"
+        src="/bloom/chars/friends-stonewall-v3.jpg"
         alt={alt}
         fill
         sizes="(min-width: 768px) 50vw, 100vw"

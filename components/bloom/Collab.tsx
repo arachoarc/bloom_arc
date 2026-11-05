@@ -120,11 +120,11 @@ function InlineGlow({
   );
 }
 
-/** 문장 속 "A2O LITE"만 브랜드 핑크로 */
+/** 문장 속 "A2O LITE"만 브랜드 핑크 + 네온 빛 */
 function highlightA2O(text: string) {
   return text.split(/(A2O LITE)/).map((part, i) =>
     part === "A2O LITE" ? (
-      <span key={i} className="text-pink">
+      <span key={i} className="neon-text text-pink">
         {part}
       </span>
     ) : (
@@ -206,7 +206,7 @@ export default function Collab() {
         <GlowBand spots={BAND_MID} className="h-28 md:h-36" />
 
         <div className="max-w-xl lg:mt-20 lg:max-w-[30rem]">
-          <h3 className="flex items-center gap-2 font-display text-xl md:text-3xl">
+          <h3 className="flex items-center gap-2 font-display text-base text-pink md:text-xl">
             {c.goodsTitle[lang]}
             <InlineGlow g={G.flower} size="w-7 md:w-10" delay={0.6} />
           </h3>

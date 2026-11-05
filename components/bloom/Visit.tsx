@@ -9,14 +9,6 @@ export default function Visit() {
   const { lang } = useBloom();
   const v = ui.visit;
 
-  const rows = [
-    [v.period, v.periodValue],
-    [v.hours, v.hoursValue],
-    [v.venue, v.venueValue],
-    [v.goodsAt, v.goodsAtValue],
-    [v.programs, v.programsValue],
-  ] as const;
-
   return (
     <section id="visit" aria-labelledby="visit-title" className="relative overflow-hidden bg-grass px-5 py-14 text-cream-head md:px-10 md:py-24">
       <Image
@@ -32,30 +24,10 @@ export default function Visit() {
         {v.title[lang]}
       </h2>
 
-      <div className="md:mt-10 md:grid md:grid-cols-[3fr_2fr] md:items-start md:gap-6">
-      <div className="relative mt-7 rounded-[28px] bg-cream-light p-5 text-ink md:mt-0 md:p-8">
-        <div className="flex items-start justify-between gap-3">
-          <p className="font-display text-xl leading-tight text-pink-deep md:text-2xl">{v.popupName[lang]}</p>
-          <span className="shrink-0 rounded-full bg-limited px-2.5 py-1 text-[11px] font-bold">
-            {v.badge[lang]}
-          </span>
-        </div>
-        <p className="mt-2 text-[12px] leading-5 text-ink/60">{v.notice[lang]}</p>
-
-        <dl className="mt-4 divide-y divide-ink/10 border-t border-ink/10 text-sm">
-          {rows.map(([k, val]) => (
-            <div key={k.en} className="flex gap-3 py-3 md:gap-6 md:py-4 md:text-[15px]">
-              <dt className="w-20 shrink-0 font-bold text-ink/60 md:w-28">{k[lang]}</dt>
-              <dd className="text-ink/85">{val[lang]}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-
-      <div className="relative mt-4 rounded-[28px] bg-forest/60 p-5 ring-1 ring-cream-head/15 md:mt-0 md:p-8">
+      <div className="relative mt-7 max-w-2xl rounded-[28px] bg-forest/60 p-5 ring-1 ring-cream-head/15 md:mt-10 md:p-8">
         <h3 className="font-display text-lg md:text-2xl">{v.howTitle[lang]}</h3>
         <p className="mt-1.5 text-[13px] leading-5 text-cream-head/80 md:mt-3 md:text-sm md:leading-6">{v.howBody[lang]}</p>
-        <div className="mt-4 grid gap-2.5">
+        <div className="mt-4 grid gap-2.5 md:grid-cols-2">
           {(
             [
               ["google", v.google],
@@ -80,7 +52,6 @@ export default function Visit() {
             </a>
           ))}
         </div>
-      </div>
       </div>
       </div>
     </section>

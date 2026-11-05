@@ -16,22 +16,14 @@ export default function Goods() {
 
   return (
     <section id="goods" aria-labelledby="goods-title" className="relative overflow-hidden bg-cream-light py-14 md:py-24">
-      <div className="pr-20 pl-5 md:mx-auto md:max-w-6xl md:pr-10 md:pl-10">
+      <div className="px-5 md:mx-auto md:max-w-6xl md:px-10">
         <Eyebrow>{g.eyebrow[lang]}</Eyebrow>
-        <h2 id="goods-title" className="mt-3 font-display text-[28px] leading-tight text-ink md:max-w-2xl md:text-4xl">
+        <h2 id="goods-title" className="mt-3 font-display text-[28px] leading-tight text-ink md:text-4xl">
           {g.title[lang]}
         </h2>
         <p className="mt-2 text-sm text-ink/65 md:mt-3 md:text-base">{g.sub[lang]}</p>
       </div>
 
-      {/* 가장자리에서 안내하는 피오·토리 (제품을 가리지 않도록 헤더 옆에 배치) */}
-      <Image
-        src="/bloom/chars/pio-surprise.png"
-        alt=""
-        width={307}
-        height={386}
-        className="pointer-events-none absolute top-4 -right-5 h-[92px] w-auto rotate-[-8deg] md:top-16 md:right-[5%] md:h-[140px]"
-      />
 
       <ul className="no-scrollbar mt-7 flex snap-x snap-mandatory gap-3.5 overflow-x-auto px-5 pb-3 md:mx-auto md:mt-12 md:grid md:max-w-6xl md:grid-cols-3 md:gap-6 md:overflow-visible md:px-10 md:pb-0">
         {goods.map((p) => (

@@ -22,8 +22,8 @@ export default function BloomLanding({ authMenu }: { authMenu?: React.ReactNode 
           <Hero />
           <Collab />
           <Story />
-          <Goods />
           <Experiences />
+          <Goods />
           <Visit />
           <Notify />
         </main>

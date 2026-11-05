@@ -66,7 +66,7 @@ export const ui = {
   story: {
     eyebrow: { ko: "DONGBAEK VILLAGE", en: "DONGBAEK VILLAGE" },
     place: { ko: "제주 · 동백마을", en: "Jeju · Dongbaek Village" },
-    title: { ko: "FIND YOUR BLOOM.", en: "FIND YOUR BLOOM." },
+    title: { ko: "FIND YOUR BLOOM", en: "FIND YOUR BLOOM" },
     lead: {
       ko: "제주에서 너만의 동백을 발견해.",
       en: "Discover your own camellia in Jeju.",
@@ -98,12 +98,12 @@ export const ui = {
   goods: {
     eyebrow: { ko: "LIMITED GOODS", en: "LIMITED GOODS" },
     title: {
-      ko: "오직 제주 동백마을에서 만나는 협업 한정판.",
-      en: "A limited collab, only at Jeju's Dongbaek Village.",
+      ko: "오직 동백마을에서 만나는 콜라보 한정판 굿즈",
+      en: "Limited collab goods, only in Dongbaek Village",
     },
     sub: {
-      ko: "굿즈만 만나도, 마을에 더 머물러도. 너의 방식대로.",
-      en: "Just the goods, or a longer stay in the village. Your way.",
+      ko: "동백마을 X A2O LITE의 NEON 그래픽을 담은 한정판 굿즈를 만나 보세요.",
+      en: "Meet the limited goods carrying the 동백마을 X A2O LITE NEON graphics.",
     },
     more: { ko: "자세히 보기", en: "View details" },
     zoomHint: { ko: "이미지를 눌러 확대", en: "Tap image to zoom" },
@@ -146,31 +146,6 @@ export const ui = {
   visit: {
     eyebrow: { ko: "VISIT DONGBAEK VILLAGE", en: "VISIT DONGBAEK VILLAGE" },
     title: { ko: "동백마을로 놀러 와.", en: "Come visit Dongbaek Village." },
-    popupName: { ko: "BLOOM YOUR WAY POP-UP", en: "BLOOM YOUR WAY POP-UP" },
-    notice: {
-      ko: "아래 일정과 장소는 캠페인 기획 기준이며, 실제 운영 정보는 확인이 필요해요.",
-      en: "The schedule and venue below are from the campaign plan and still need confirmation.",
-    },
-    badge: { ko: "확인 필요", en: "To be confirmed" },
-    period: { ko: "기간", en: "Dates" },
-    periodValue: { ko: "2026.10.30 – 11.30", en: "Oct 30 – Nov 30, 2026" },
-    hours: { ko: "운영 시간", en: "Hours" },
-    hoursValue: {
-      ko: "매일 11:00 – 18:00 (입장 마감 17:30)",
-      en: "Daily 11:00 – 18:00 (last entry 17:30)",
-    },
-    venue: { ko: "장소", en: "Venue" },
-    venueValue: { ko: "제주 동백마을 BLOOM HOUSE", en: "BLOOM HOUSE, Dongbaek Village, Jeju" },
-    goodsAt: { ko: "굿즈 판매", en: "Goods" },
-    goodsAtValue: {
-      ko: "팝업 현장 한정 판매 (상세 확정 후 안내)",
-      en: "On-site only at the pop-up (details TBA)",
-    },
-    programs: { ko: "체험 프로그램", en: "Programs" },
-    programsValue: {
-      ko: "동백꽃잎차 명상 · 동백오일 만들기 · 고사리 파스타",
-      en: "Camellia tea meditation · Camellia oil making · Bracken pasta",
-    },
     howTitle: { ko: "찾아오는 방법", en: "Getting there" },
     howBody: {
       ko: "제주 동백마을은 외부 지도에서 위치를 확인할 수 있어요. 세부 교통 안내는 확정 후 공개됩니다.",
@@ -353,10 +328,10 @@ export const experiences: Experience[] = [
   {
     id: "oil",
     topic: "experience",
-    img: "/bloom/exp/oil-v2.png",
+    img: "/bloom/exp/oil-v3.png",
     alt: {
-      ko: "동백나무 아래 테이블에서 피오·토리와 함께 동백씨앗을 고르는 동백오일 만들기 체험 장면",
-      en: "Sorting camellia seeds with Pio and Tori at a table under camellia trees, for oil making",
+      ko: "동백나무 아래 테이블에서 토리와 함께 동백씨앗을 고르는 동백오일 만들기 체험 장면",
+      en: "Sorting camellia seeds with Tori at a table under camellia trees, for oil making",
     },
     name: { ko: "동백오일 만들기", en: "Camellia Oil Making" },
     short: {
@@ -374,10 +349,10 @@ export const experiences: Experience[] = [
   {
     id: "pasta",
     topic: "experience",
-    img: "/bloom/exp/pasta.png",
+    img: "/bloom/exp/pasta-v2.png",
     alt: {
-      ko: "피오·토리와 함께 고사리 파스타를 요리하는 쿠킹 클래스 장면",
-      en: "Cooking bracken pasta with Pio and Tori in a cooking class",
+      ko: "제주 돌집 주방에서 피오와 함께 고사리 파스타를 요리하는 쿠킹 클래스 장면",
+      en: "Cooking bracken pasta with Pio in a Jeju stone-house kitchen",
     },
     name: { ko: "고사리 파스타 쿠킹 클래스", en: "Bracken Pasta Cooking Class" },
     short: {
