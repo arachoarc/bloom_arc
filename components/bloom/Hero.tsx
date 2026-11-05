@@ -1,16 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useBloom } from "./BloomContext";
 import { COLLAB, ui } from "@/lib/bloom/content";
 import { BellIcon } from "./parts";
 
 const POSTER = "/bloom/kv-poster.png";
+const VIDEO = "/bloom/video/kv-v2.mp4";
+
+// md(768px) 이상에서만 배경 영상을 만든다 (모바일은 영상을 한 번만 받도록)
+const WIDE = "(min-width: 48rem)";
+function subscribeWide(onChange: () => void) {
+  const m = window.matchMedia(WIDE);
+  m.addEventListener("change", onChange);
+  return () => m.removeEventListener("change", onChange);
+}
+function useWide() {
+  return useSyncExternalStore(
+    subscribeWide,
+    () => window.matchMedia(WIDE).matches,
+    () => false,
+  );
+}
 
 export default function Hero() {
   const { lang } = useBloom();
   const video = useRef<HTMLVideoElement>(null);
+  const backdrop = useRef<HTMLVideoElement>(null);
+  const wide = useWide();
   const [playing, setPlaying] = useState(false);
   const [fallback, setFallback] = useState(false);
   const [muted, setMuted] = useState(true);
@@ -53,22 +71,66 @@ export default function Hero() {
   }
 
   return (
-    <section id="top" aria-label={ui.hero.videoLabel[lang]} className="bg-forest md:px-10 md:py-10">
+    <section
+      id="top"
+      aria-label={ui.hero.videoLabel[lang]}
+      className="relative overflow-hidden bg-forest md:flex md:min-h-[calc(100dvh-131px)] md:items-center md:px-10 md:py-8 lg:min-h-[calc(100dvh-96px)]"
+    >
+      {/* md 이상: 같은 KV를 화면 전체에 흐리게 깔아 몰입감을 준다 (세로 영상은 자르지 않음) */}
+      {wide && (
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          {fallback ? (
+            <Image src={POSTER} alt="" fill sizes="100vw" className="scale-110 object-cover blur-2xl brightness-[0.55] saturate-125" />
+          ) : (
+            <video
+              ref={backdrop}
+              className="size-full scale-110 object-cover blur-2xl brightness-[0.55] saturate-125"
+              src={VIDEO}
+              muted
+              loop
+              playsInline
+              autoPlay
+              preload="auto"
+              tabIndex={-1}
+              onLoadedData={(e) => {
+                const main = video.current;
+                if (main?.paused) e.currentTarget.pause();
+                else if (main) e.currentTarget.currentTime = main.currentTime;
+              }}
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-r from-forest/60 via-forest/10 to-forest/70" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-forest" />
+        </div>
+      )}
+
       {/* md 이상: 세로 영상(왼쪽) + 안내 패널(오른쪽) */}
-      <div className="md:mx-auto md:flex md:max-w-6xl md:items-center md:justify-center md:gap-10 lg:gap-20">
-      <div className="relative aspect-[1080/1916] w-full overflow-hidden bg-forest md:h-[clamp(460px,calc(100dvh-200px),620px)] lg:h-[clamp(520px,calc(100dvh-152px),860px)] md:w-auto md:shrink-0 md:rounded-[32px] md:shadow-2xl md:ring-1 md:ring-cream-head/10">
+      <div className="md:relative md:z-10 md:mx-auto md:flex md:w-full md:max-w-6xl md:items-center md:justify-center md:gap-10 lg:gap-20">
+      <div className="relative aspect-[1080/1916] w-full overflow-hidden bg-forest md:h-[clamp(460px,calc(100dvh-195px),700px)] lg:h-[clamp(520px,calc(100dvh-160px),920px)] md:w-auto md:shrink-0 md:rounded-[32px] md:shadow-2xl md:ring-1 md:ring-cream-head/10">
         <video
           ref={video}
           className="absolute inset-0 size-full object-cover"
-          src="/bloom/video/kv-v2.mp4"
+          src={VIDEO}
           poster={POSTER}
           muted
           loop
           playsInline
           preload="metadata"
           aria-label={ui.hero.videoLabel[lang]}
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
+          onPlay={() => {
+            setPlaying(true);
+            backdrop.current?.play().catch(() => {});
+          }}
+          onPause={() => {
+            setPlaying(false);
+            backdrop.current?.pause();
+          }}
+          onTimeUpdate={(e) => {
+            // 배경 영상이 앞 영상과 0.5초 넘게 어긋나면 맞춘다
+            const b = backdrop.current;
+            const t = e.currentTarget.currentTime;
+            if (b && Math.abs(b.currentTime - t) > 0.5) b.currentTime = t;
+          }}
           onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
           onError={() => setFallback(true)}
         />
