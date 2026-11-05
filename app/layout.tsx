@@ -16,10 +16,27 @@ const noto = Noto_Sans_KR({
   display: "swap",
 });
 
+const TITLE = "bloom! — BLOOM YOUR WAY | 동백마을 X A2O LITE";
+const DESCRIPTION =
+  "너의 방식대로 피어나. 제주 동백마을 X A2O LITE 한정판 굿즈와 마을 체험 프로그램을 만나 보세요. (교육용 가상 캠페인 프로토타입)";
+
 export const metadata: Metadata = {
-  title: "bloom! — BLOOM YOUR WAY | 동백마을 X A2O LITE",
-  description:
-    "너의 방식대로 피어나. 제주 동백마을 X A2O LITE 한정판 굿즈와 마을 체험 프로그램을 만나 보세요. (교육용 가상 캠페인 프로토타입)",
+  // 링크 미리보기 이미지(app/opengraph-image.jpg)를 절대 주소로 만들기 위한 기준 URL
+  metadataBase: new URL("https://bloom-arc.vercel.app"),
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    siteName: "bloom!",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export const viewport: Viewport = {
