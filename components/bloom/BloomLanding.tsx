@@ -11,12 +11,12 @@ import Visit from "./Visit";
 import Notify from "./Notify";
 import { COLLAB, ui } from "@/lib/bloom/content";
 
-export default function BloomLanding() {
+export default function BloomLanding({ authMenu }: { authMenu?: React.ReactNode }) {
   return (
     <BloomProvider>
       {/* 390px 기준 모바일 프레임. 데스크톱에서는 가운데 정렬 */}
       <div className="mx-auto min-h-dvh w-full max-w-[430px] bg-cream-light shadow-2xl">
-        <Header />
+        <Header authMenu={authMenu} />
         <main>
           <Hero />
           <Story />

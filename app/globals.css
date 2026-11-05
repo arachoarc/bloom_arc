@@ -22,7 +22,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 104px;
+  /* 헤더 높이: 회원 메뉴 32px + 로고 줄 56px + 섹션 메뉴 줄 */
+  scroll-padding-top: 136px;
   -webkit-text-size-adjust: 100%;
 }
 

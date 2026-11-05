@@ -6,11 +6,12 @@ import { COLLAB, ui } from "@/lib/bloom/content";
 
 const NAV = ["story", "goods", "experiences", "visit", "notify"] as const;
 
-export default function Header() {
+export default function Header({ authMenu }: { authMenu?: React.ReactNode }) {
   const { lang, setLang } = useBloom();
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink/5 bg-cream-head/95 backdrop-blur">
+      {authMenu}
       <div className="flex h-14 items-center justify-between px-4">
         <a href="#top" className="flex items-center gap-2" aria-label="bl✿om! — BLOOM YOUR WAY">
           <Image
