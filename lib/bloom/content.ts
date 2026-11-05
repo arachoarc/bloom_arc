@@ -2,7 +2,6 @@
 // PRD v2.2 기준. 가격·재고·성분·확정되지 않은 운영 정보는 넣지 않는다.
 
 export type Lang = "ko" | "en";
-export type Topic = "goods" | "experience";
 
 type L = Record<Lang, string>;
 
@@ -49,9 +48,9 @@ export const ui = {
     eyebrow: { ko: "COLLABORATION", en: "COLLABORATION" },
     title: { ko: "NEON처럼 빛나는 동백숲", en: "A camellia forest glowing like NEON" },
     lines: [
-      { ko: "각자의 색으로 빛나는 A2O LITE가", en: "A2O LITE, each shining in their own color," },
-      { ko: "저마다의 색으로 피는 동백숲을 만나", en: "meets a camellia forest where every flower blooms in its own color —" },
-      { ko: "NEON처럼 빛난다.", en: "and together, they glow like NEON." },
+      { ko: "저마다의 색으로 피는 동백숲이", en: "A camellia forest where every flower blooms in its own color" },
+      { ko: "각자의 색으로 빛나는 A2O LITE를 만나", en: "meets A2O LITE, each shining in their own color —" },
+      { ko: "NEON처럼 빛나요.", en: "and together, they glow like NEON." },
     ],
     goodsTitle: { ko: "굿즈에 피어난 콜라보 NEON 그래픽", en: "Collab NEON graphics, blooming on the goods" },
     goodsSub: {
@@ -68,7 +67,7 @@ export const ui = {
     place: { ko: "제주 · 동백마을", en: "Jeju · Dongbaek Village" },
     title: { ko: "FIND YOUR BLOOM", en: "FIND YOUR BLOOM" },
     lead: {
-      ko: "제주에서 너만의 동백을 발견해.",
+      ko: "제주에서 너만의 동백을 발견해요.",
       en: "Discover your own camellia in Jeju.",
     },
     body: {
@@ -98,12 +97,12 @@ export const ui = {
   goods: {
     eyebrow: { ko: "LIMITED GOODS", en: "LIMITED GOODS" },
     title: {
-      ko: "오직 동백마을에서 만나는 콜라보 한정판 굿즈",
-      en: "Limited collab goods, only in Dongbaek Village",
+      ko: "오직 동백마을에서만 만날 수 있어요",
+      en: "Found only in Dongbaek Village",
     },
     sub: {
-      ko: "동백마을 X A2O LITE의 NEON 그래픽을 담은 한정판 굿즈를 만나 보세요.",
-      en: "Meet the limited goods carrying the 동백마을 X A2O LITE NEON graphics.",
+      ko: "동백마을 X A2O LITE의 NEON 그래픽을 담은 한정판 굿즈",
+      en: "Limited goods carrying the 동백마을 X A2O LITE NEON graphics",
     },
     more: { ko: "자세히 보기", en: "View details" },
     zoomHint: { ko: "이미지를 눌러 확대", en: "Tap image to zoom" },
@@ -114,13 +113,13 @@ export const ui = {
       ko: "제주 동백마을 팝업 현장에서만 만날 수 있어요. 판매 정보는 확정 후 알림으로 안내드려요.",
       en: "Available only at the Dongbaek Village pop-up. Sales details will be shared once confirmed.",
     },
-    notifyCta: { ko: "굿즈 판매 소식 알림받기", en: "Notify me about goods" },
+    notifyCta: { ko: "콜라보 굿즈 출시 알림받기", en: "Notify me about the collab goods launch" },
   },
   exp: {
     eyebrow: { ko: "VILLAGE EXPERIENCES", en: "VILLAGE EXPERIENCES" },
     title: {
-      ko: "마을에 조금 더 머물러 볼까?",
-      en: "Stay a little longer in the village?",
+      ko: "각자의 속도로 동백마을을 만나요",
+      en: "Meet Dongbaek Village at your own pace",
     },
     sub: {
       ko: "동백으로 즐기는 세 가지 체험 프로그램",
@@ -138,10 +137,9 @@ export const ui = {
       en: "BLOOM HOUSE, Dongbaek Village, Jeju (planned · to be confirmed)",
     },
     joinValue: {
-      ko: "실시간 예약은 제공하지 않아요. 프로그램 소식 알림을 신청해 주세요.",
-      en: "Online booking isn't available. Sign up for program updates.",
+      ko: "실시간 예약은 제공하지 않아요. 참여 방법은 확정 후 안내드려요.",
+      en: "Online booking isn't available. How to join will be shared once confirmed.",
     },
-    notifyCta: { ko: "체험 프로그램 소식 알림받기", en: "Notify me about programs" },
   },
   visit: {
     eyebrow: { ko: "VISIT DONGBAEK VILLAGE", en: "VISIT DONGBAEK VILLAGE" },
@@ -157,16 +155,13 @@ export const ui = {
   },
   notify: {
     eyebrow: { ko: "GET NOTIFIED", en: "GET NOTIFIED" },
-    title: { ko: "피어나는 소식, 먼저 받아볼래?", en: "Want the bloom news first?" },
-    pick: { ko: "받고 싶은 알림을 골라 주세요 (복수 선택 가능)", en: "Choose your updates (select one or both)" },
-    goods: { ko: "굿즈 판매 소식", en: "Goods sales news" },
+    title: { ko: "굿즈 출시 소식 가장 먼저 받아보세요", en: "Be the first to hear about the goods launch" },
+    pick: { ko: "받아 볼 알림", en: "Your update" },
+    goods: { ko: "콜라보 굿즈 출시 소식", en: "Collab goods launch news" },
     goodsDesc: { ko: "BLOOM CHARM · STICKERS · CAMELLIA OIL", en: "BLOOM CHARM · STICKERS · CAMELLIA OIL" },
-    experience: { ko: "체험 프로그램 소식", en: "Experience program news" },
-    experienceDesc: { ko: "차 명상 · 오일 만들기 · 쿠킹 클래스", en: "Tea meditation · Oil making · Cooking class" },
     email: { ko: "이메일 주소", en: "Email address" },
     placeholder: { ko: "you@example.com", en: "you@example.com" },
     submit: { ko: "알림받기", en: "Get notified" },
-    errTopic: { ko: "알림 종류를 하나 이상 선택해 주세요.", en: "Please choose at least one update." },
     errEmpty: { ko: "이메일 주소를 입력해 주세요.", en: "Please enter your email address." },
     errFormat: {
       ko: "이메일 형식이 올바르지 않아요. 예) you@example.com",
@@ -178,8 +173,8 @@ export const ui = {
     },
     doneTitle: { ko: "알림 신청 화면이 완료되었어요!", en: "Your notification sign-up is complete!" },
     doneBody: {
-      ko: "선택한 소식",
-      en: "Selected updates",
+      ko: "신청한 소식",
+      en: "Your update",
     },
     doneProto: {
       ko: "프로토타입이라 실제 이메일은 발송되지 않아요.",
@@ -293,7 +288,6 @@ export const goods: Goods[] = [
 
 export type Experience = {
   id: string;
-  topic: Topic;
   img: string;
   alt: L;
   name: L;
@@ -306,7 +300,6 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     id: "tea",
-    topic: "experience",
     img: "/bloom/exp/tea-v2.png",
     alt: {
       ko: "동백 숲이 보이는 방에서 피오·토리와 함께 동백꽃잎차를 마시며 명상하는 모습",
@@ -327,7 +320,6 @@ export const experiences: Experience[] = [
   },
   {
     id: "oil",
-    topic: "experience",
     img: "/bloom/exp/oil-v3.png",
     alt: {
       ko: "동백나무 아래 테이블에서 토리와 함께 동백씨앗을 고르는 동백오일 만들기 체험 장면",
@@ -348,7 +340,6 @@ export const experiences: Experience[] = [
   },
   {
     id: "pasta",
-    topic: "experience",
     img: "/bloom/exp/pasta-v2.png",
     alt: {
       ko: "제주 돌집 주방에서 피오와 함께 고사리 파스타를 요리하는 쿠킹 클래스 장면",

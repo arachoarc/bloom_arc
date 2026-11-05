@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { useBloom } from "./BloomContext";
 import { Sheet } from "./Sheet";
-import { BellIcon, Duo, Eyebrow, PrimaryButton } from "./parts";
+import { Duo, Eyebrow } from "./parts";
 import { experiences, ui } from "@/lib/bloom/content";
 
 export default function Experiences() {
-  const { lang, goNotify } = useBloom();
+  const { lang } = useBloom();
   const [openId, setOpenId] = useState<string | null>(null);
   const e = ui.exp;
   const item = experiences.find((x) => x.id === openId) ?? null;
@@ -112,16 +112,6 @@ export default function Experiences() {
               </div>
             </dl>
 
-            <PrimaryButton
-              className="mt-6"
-              onClick={() => {
-                setOpenId(null);
-                goNotify("experience");
-              }}
-            >
-              <BellIcon />
-              {e.notifyCta[lang]}
-            </PrimaryButton>
           </article>
         )}
       </Sheet>

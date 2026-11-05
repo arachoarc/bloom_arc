@@ -124,7 +124,7 @@ export default function Goods() {
               className="mt-6"
               onClick={() => {
                 setOpenId(null);
-                goNotify("goods");
+                goNotify();
               }}
             >
               <BellIcon />

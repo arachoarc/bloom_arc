@@ -33,7 +33,8 @@ const SPRAY: [Gfx, Place, string, number][] = [
   // 본문 줄 옆 (가까이 작게 → 멀리 크게)
   [G.flower, { left: "500px", top: "34%" }, "w-8", 0.3],
   [G.aqua, { left: "560px", top: "29%" }, "w-6", 2.9],
-  [G.aquaFlower, { left: "540px", top: "46%" }, "w-12", 1.7],
+  // 큰 아쿠아 선 꽃: 오른쪽 큰 꽃(right 12%) 바로 왼쪽 빈 곳. 1280px 미만은 자리가 좁아 숨김
+  [G.aquaFlower, { right: "calc(12% + 160px)", top: "42%" }, "hidden w-36 xl:block", 1.7],
   [G.aqua, { right: "2%", top: "28%" }, "w-8", 2.6],
   [G.flower, { right: "12%", top: "29%" }, "w-36", 1.9],
   [G.leaf, { right: "1%", top: "46%" }, "w-24", 1.2],
@@ -124,7 +125,7 @@ function InlineGlow({
 function highlightA2O(text: string) {
   return text.split(/(A2O LITE)/).map((part, i) =>
     part === "A2O LITE" ? (
-      <span key={i} className="neon-text text-pink">
+      <span key={i} className="neon-text-pink text-pink">
         {part}
       </span>
     ) : (

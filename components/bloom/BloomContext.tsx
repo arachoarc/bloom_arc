@@ -1,15 +1,13 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import type { Lang, Topic } from "@/lib/bloom/content";
+import type { Lang } from "@/lib/bloom/content";
 
 type Ctx = {
   lang: Lang;
   setLang: (l: Lang) => void;
-  topics: Set<Topic>;
-  setTopics: (t: Set<Topic>) => void;
-  /** 상세보기 등에서 알림받기 영역으로 이동하며 해당 알림을 미리 선택한다 */
-  goNotify: (topic?: Topic) => void;
+  /** 굿즈 상세보기 등에서 알림받기 영역으로 이동한다 */
+  goNotify: () => void;
 };
 
 const BloomCtx = createContext<Ctx | null>(null);
@@ -18,7 +16,6 @@ const LANG_KEY = "bloom-lang";
 
 export function BloomProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>("ko");
-  const [topics, setTopics] = useState<Set<Topic>>(new Set());
 
   useEffect(() => {
     try {
@@ -43,20 +40,17 @@ export function BloomProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const goNotify = useCallback((topic?: Topic) => {
-    if (topic) {
-      setTopics((prev) => new Set(prev).add(topic));
-    }
-    // 시트(dialog)가 닫힌 뒤 스크롤되도록 다음 프레임에 이동
-    requestAnimationFrame(() => {
-      const el = document.getElementById("notify");
-      el?.scrollIntoView({ block: "start" });
+  const goNotify = useCallback(() => {
+    // 시트(dialog)가 닫히면서 원래 버튼으로 포커스가 돌아가 스크롤이 되돌아가지 않도록,
+    // 닫힘 처리가 끝난 뒤에 이동한다.
+    setTimeout(() => {
       document.getElementById("notify-email")?.focus({ preventScroll: true });
-    });
+      document.getElementById("notify")?.scrollIntoView({ block: "start" });
+    }, 80);
   }, []);
 
   return (
-    <BloomCtx.Provider value={{ lang, setLang, topics, setTopics, goNotify }}>
+    <BloomCtx.Provider value={{ lang, setLang, goNotify }}>
       {children}
     </BloomCtx.Provider>
   );
