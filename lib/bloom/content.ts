@@ -77,10 +77,9 @@ export const ui = {
     },
     // 피오·토리 소개 (resources/characters_png/characters_story.png 스토리 기준)
     friends: {
-      title: { ko: "동백마을의 다정한 두 친구", en: "Two friendly faces of Dongbaek Village" },
       alt: {
-        ko: "손 흔들며 인사하는 동백꽃 피오와 동백씨앗 토리",
-        en: "Pio the Camellia and Tori the Camellia Seed waving hello",
+        ko: "동백꽃이 핀 제주 돌담 위에서 손 흔드는 동백꽃 피오와 동백씨앗 토리",
+        en: "Pio the Camellia and Tori the Camellia Seed waving on a Jeju stone wall with camellias",
       },
       sub: {
         ko: "마을에 온 너를 피오와 토리가 함께 안내할 거야.",
@@ -89,18 +88,10 @@ export const ui = {
       pio: {
         name: { ko: "동백꽃 피오", en: "Pio the Camellia" },
         tagline: { ko: "너의 방식대로 피어나는 친구", en: "The friend who blooms in their own way" },
-        intro: {
-          ko: "마을에 온 너를 가장 먼저 반기고, 가고 싶은 곳으로 길을 안내해.",
-          en: "First to greet you in the village, and always ready to show you the way.",
-        },
       },
       tori: {
         name: { ko: "동백씨앗 토리", en: "Tori the Camellia Seed" },
         tagline: { ko: "작은 가능성을 발견하는 친구", en: "The friend who finds small possibilities" },
-        intro: {
-          ko: "피오 곁에서 마을 곳곳의 작은 발견을 놓치지 않아.",
-          en: "Right by Pio's side, never missing a small discovery around the village.",
-        },
       },
     },
   },
