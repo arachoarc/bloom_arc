@@ -59,13 +59,6 @@ export default function Goods() {
         ))}
       </ul>
 
-      <Image
-        src="/bloom/chars/tori-shy.png"
-        alt=""
-        width={297}
-        height={341}
-        className="pointer-events-none absolute -bottom-2 -left-3 h-[64px] w-auto md:left-[3%] md:h-[96px]"
-      />
 
       <Sheet open={!!item} onClose={() => setOpenId(null)} labelledBy="goods-sheet-title" size="lg">
         {item && (
