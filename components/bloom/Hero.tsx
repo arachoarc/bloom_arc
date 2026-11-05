@@ -9,7 +9,7 @@ import { BellIcon } from "./parts";
 // 모바일: 세로(9:16) KV / md(768px) 이상: 가로(16:9) KV
 const KV = {
   portrait: { video: "/bloom/video/kv-v2.mp4", poster: "/bloom/kv-poster.png" },
-  landscape: { video: "/bloom/video/kv-horizontal-720.mp4", poster: "/bloom/kv-poster-horizontal.jpg" },
+  landscape: { video: "/bloom/video/kv-horizontal-1080.mp4", poster: "/bloom/kv-poster-horizontal.jpg" },
 };
 
 const WIDE = "(min-width: 48rem)";
