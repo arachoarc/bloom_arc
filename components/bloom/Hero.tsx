@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useBloom } from "./BloomContext";
-import { COLLAB, ui } from "@/lib/bloom/content";
-import { BellIcon } from "./parts";
+import { ui } from "@/lib/bloom/content";
 
 // 모바일: 세로(9:16) KV / md(768px) 이상: 가로(16:9) KV
 const KV = {
@@ -152,46 +151,6 @@ export default function Hero() {
             {ui.hero.fallback[lang]}
           </p>
         )}
-      </div>
-
-      {/* md 이상: 영상 아래 안내 띠 (영상 속 로고·슬로건 위에는 글자를 얹지 않는다) */}
-      <div className="hidden px-10 py-10 text-cream-head md:block">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-10">
-          <div className="max-w-xl">
-            <p className="text-xs font-bold tracking-[0.2em] text-aqua">{ui.visit.popupName[lang]}</p>
-            <p className="mt-2 font-display text-3xl leading-tight break-keep lg:text-4xl">{COLLAB}</p>
-            <p className="mt-3 text-base leading-7 text-cream-head/80">{ui.hero.sideBody[lang]}</p>
-            <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-cream-head/80">
-              <span className="font-bold text-cream-head">{ui.visit.periodValue[lang]}</span>
-              <span className="rounded-full bg-limited px-2.5 py-0.5 text-[11px] font-bold text-ink">
-                {ui.visit.badge[lang]}
-              </span>
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-col items-end gap-5">
-            <div className="flex flex-wrap justify-end gap-3">
-              <a
-                href="#goods"
-                className="inline-flex min-h-12 items-center rounded-full border-2 border-cream-head/40 px-6 text-sm font-bold text-cream-head transition-colors hover:border-cream-head hover:bg-cream-head/10"
-              >
-                {ui.hero.sideGoods[lang]}
-              </a>
-              <a
-                href="#notify"
-                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-pink px-6 text-sm font-bold text-white transition-colors hover:bg-pink-deep"
-              >
-                <BellIcon />
-                {ui.nav.notify[lang]}
-              </a>
-            </div>
-            <a href="#collab" className="inline-flex items-center gap-2 text-sm text-cream-head/70 hover:text-cream-head">
-              <svg viewBox="0 0 24 24" className="animate-bob size-5" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
-                <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              {ui.hero.scroll[lang]}
-            </a>
-          </div>
-        </div>
       </div>
 
       <a

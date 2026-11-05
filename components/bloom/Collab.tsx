@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useBloom } from "./BloomContext";
-import { Eyebrow } from "./parts";
+import { BellIcon, Eyebrow } from "./parts";
 import { COLLAB, ui } from "@/lib/bloom/content";
 
 // 콜라보 글로우 그래픽 원본 (모두 투명 PNG, 빛 번짐 포함)
@@ -39,7 +39,7 @@ const SPRAY: [Gfx, Place, string, number][] = [
   [G.leaf, { right: "1%", top: "46%" }, "w-24", 1.2],
   // 굿즈 줄 옆
   [G.pink, { left: "500px", top: "66%" }, "w-10", 2.4],
-  [G.seed, { left: "250px", top: "91%" }, "w-8", 1.1],
+  [G.seed, { left: "400px", top: "90%" }, "w-8", 1.1],
   [G.seed, { left: "560px", top: "78%" }, "w-16", 0.1],
   [G.pink, { right: "2%", top: "76%" }, "w-20", 0.7],
 ];
@@ -60,11 +60,11 @@ const BAND_MID: Spot[] = [
   [G.pink, "80%", "38%", "w-14 md:w-20", 1.0],
 ];
 const BAND_BOTTOM: Spot[] = [
-  [G.seed, "4%", "18%", "w-12 md:w-16", 1.5],
+  [G.seed, "4%", "22%", "w-12 md:w-16", 1.5],
   [G.pink, "24%", "56%", "w-7 md:w-9", 0.3],
-  [G.leaf, "40%", "8%", "w-14 md:w-20", 2.4],
+  [G.leaf, "40%", "16%", "w-14 md:w-20", 2.4],
   [G.aquaFlower, "62%", "46%", "w-8 md:w-10", 1.1],
-  [G.flower, "78%", "4%", "w-16 md:w-24", 2.8],
+  [G.flower, "78%", "16%", "w-16 md:w-24", 2.8],
 ];
 
 function Glow({ spot, sizes }: { spot: Spot; sizes: string }) {
@@ -211,13 +211,22 @@ export default function Collab() {
             <InlineGlow g={G.flower} size="w-7 md:w-10" delay={0.6} />
           </h3>
           <p className="mt-1.5 text-[13px] leading-5 text-cream-head/80 md:text-base md:leading-7">{c.goodsSub[lang]}</p>
-          <a
-            href="#goods"
-            className="mt-6 inline-flex min-h-12 items-center gap-1.5 rounded-full bg-pink px-6 text-sm font-bold text-white transition-colors hover:bg-pink-deep md:mt-8"
-          >
-            {ui.hero.sideGoods[lang]}
-            <span aria-hidden>→</span>
-          </a>
+          <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
+            <a
+              href="#goods"
+              className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-pink px-6 text-sm font-bold text-white transition-colors hover:bg-pink-deep"
+            >
+              {ui.hero.sideGoods[lang]}
+              <span aria-hidden>→</span>
+            </a>
+            <a
+              href="#notify"
+              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-pink px-6 text-sm font-bold text-white transition-colors hover:bg-pink-deep"
+            >
+              <BellIcon />
+              {ui.nav.notify[lang]}
+            </a>
+          </div>
         </div>
 
         <GlowBand spots={BAND_BOTTOM} className="h-24 md:h-32" />
