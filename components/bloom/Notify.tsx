@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { useBloom } from "./BloomContext";
-import { BellIcon, Duo, Eyebrow, PrimaryButton } from "./parts";
+import { BellIcon, Eyebrow, PrimaryButton } from "./parts";
 import { ui } from "@/lib/bloom/content";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -123,20 +123,12 @@ export default function Notify() {
             </div>
           </div>
         ) : (
-          <div className="md:mx-auto md:grid md:max-w-5xl md:grid-cols-2 md:items-start md:gap-16">
-            <div className="md:sticky md:top-32">
+          <div className="md:mx-auto md:grid md:max-w-5xl md:grid-cols-2 md:items-center md:gap-16">
+            <div>
               <Eyebrow tone="light">{n.eyebrow[lang]}</Eyebrow>
               <h2 id="notify-title" className="neon-text mt-3 font-display text-[28px] leading-tight text-cream-head md:text-4xl">
                 {n.title[lang]}
               </h2>
-              <div className="mt-10 hidden rounded-[32px] bg-cream px-8 pt-8 pb-6 md:block">
-                <Duo
-                  pio={{ src: "/bloom/chars/pio-smile.png", w: 334, h: 386, alt: "" }}
-                  tori={{ src: "/bloom/chars/tori-welcome.png", w: 412, h: 380, alt: "" }}
-                  height={150}
-                  className="justify-center"
-                />
-              </div>
             </div>
 
             <form
