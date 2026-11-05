@@ -72,56 +72,20 @@ export const ui = {
       en: "Discover your own camellia in Jeju.",
     },
     body: {
-      ko: "동백마을은 겨울이면 마을 곳곳에 붉은 동백이 피어나는 제주의 작은 마을이에요. 꽃이 진 자리에 맺힌 씨앗을 모아 오일로 만들며, 동백과 함께 계절을 보내 왔어요. 숲길을 걷고, 꽃잎차를 마시고, 씨앗을 고르며 너만의 속도로 머물러 봐.",
+      ko: "동백마을은 겨울이면 마을 곳곳에 붉은 동백이 피어나는 제주의 작은 마을이에요. 꽃이 진 자리에 맺힌 씨앗을 모아 오일로 만들며, 동백과 함께 계절을 보내 왔어요. 숲길을 걷고, 꽃잎차를 마시고, 씨앗을 고르며 너만의 속도로 머물러 보세요.",
       en: "Dongbaek Village is a small Jeju village where red camellias bloom all around in winter. Villagers gather the seeds left behind by fallen flowers and press them into oil, living each season alongside the camellia. Walk the forest paths, sip petal tea, sort seeds — and stay at your own pace.",
     },
-    meaningTitle: {
-      ko: "동백이 피어나는 세 가지 모습",
-      en: "Three ways the camellia blooms",
-    },
-    meanings: [
-      {
-        key: "flower",
-        img: "/bloom/gfx/flower-badge.png",
-        w: 343,
-        h: 318,
-        name: { ko: "동백꽃", en: "Camellia flower" },
-        desc: {
-          ko: "추운 계절에 가장 먼저 피어나는 꽃. 너만의 방식으로 피어나는 용기를 뜻해요.",
-          en: "The flower that blooms first in the cold season — the courage to bloom your way.",
-        },
-      },
-      {
-        key: "seed",
-        img: "/bloom/gfx/seed.png",
-        w: 348,
-        h: 310,
-        name: { ko: "동백씨앗", en: "Camellia seed" },
-        desc: {
-          ko: "꽃이 진 자리에 맺히는 씨앗. 다음 계절을 준비하는 가능성을 담았어요.",
-          en: "The seed left where the flower fell — the promise of the next season.",
-        },
-      },
-      {
-        key: "oil",
-        img: "/bloom/gfx/oil-drop.png",
-        w: 360,
-        h: 480,
-        name: { ko: "동백오일", en: "Camellia oil" },
-        desc: {
-          ko: "씨앗을 짜서 얻는 오일. 마을이 오랫동안 이어 온 동백의 손길을 전해요.",
-          en: "Oil pressed from the seeds — the village's long-held camellia craft.",
-        },
-      },
-    ],
     // 피오·토리 소개 (resources/characters_png/characters_story.png 스토리 기준)
     friends: {
       title: { ko: "동백마을의 다정한 두 친구", en: "Two friendly faces of Dongbaek Village" },
+      alt: {
+        ko: "손 흔들며 인사하는 동백꽃 피오와 동백씨앗 토리",
+        en: "Pio the Camellia and Tori the Camellia Seed waving hello",
+      },
       sub: {
-        ko: "마을에 온 너를 피오와 토리가 함께 안내해.",
+        ko: "마을에 온 너를 피오와 토리가 함께 안내할 거야.",
         en: "Pio and Tori will show you around the village together.",
       },
-      traitsLabel: { ko: "이렇게 알아봐", en: "How to spot" },
       pio: {
         name: { ko: "동백꽃 피오", en: "Pio the Camellia" },
         tagline: { ko: "너의 방식대로 피어나는 친구", en: "The friend who blooms in their own way" },
@@ -129,12 +93,6 @@ export const ui = {
           ko: "마을에 온 너를 가장 먼저 반기고, 가고 싶은 곳으로 길을 안내해.",
           en: "First to greet you in the village, and always ready to show you the way.",
         },
-        traits: [
-          { ko: "다섯 잎 구름 모양의 분홍 동백꽃", en: "A pink, five-petal cloud-shaped camellia" },
-          { ko: "머리 왼쪽 위의 연두색 잎", en: "A lime leaf on the top-left of the head" },
-          { ko: "몸에 스친 민트색 붓자국", en: "Mint brush strokes across the body" },
-        ],
-        alt: { ko: "꽃 향기를 맡는 동백꽃 피오", en: "Pio the Camellia smelling a flower" },
       },
       tori: {
         name: { ko: "동백씨앗 토리", en: "Tori the Camellia Seed" },
@@ -143,12 +101,6 @@ export const ui = {
           ko: "피오 곁에서 마을 곳곳의 작은 발견을 놓치지 않아.",
           en: "Right by Pio's side, never missing a small discovery around the village.",
         },
-        traits: [
-          { ko: "주황색 타원형 동백씨앗", en: "An orange, oval camellia seed" },
-          { ko: "몸을 가로지르는 대각선 줄무늬", en: "Diagonal stripes across the body" },
-          { ko: "머리 오른쪽 위의 분홍 꽃", en: "A pink flower on the top-right of the head" },
-        ],
-        alt: { ko: "환하게 웃는 동백씨앗 토리", en: "Tori the Camellia Seed smiling" },
       },
     },
   },
