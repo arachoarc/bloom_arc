@@ -17,11 +17,11 @@ export default function Header({ authMenu }: { authMenu?: React.ReactNode }) {
         <a
           href="#top"
           className="flex h-14 items-center pl-5 md:pl-10 lg:h-auto lg:shrink-0 lg:pl-0"
-          aria-label="bl🌸om! — BLOOM YOUR WAY"
+          aria-label="bl✿om! — BLOOM YOUR WAY"
         >
           <Image
             src="/bloom/logo/color.png"
-            alt="bl🌸om!"
+            alt="bl✿om!"
             width={2172}
             height={724}
             sizes="(min-width: 1024px) 132px, 120px"

@@ -134,8 +134,8 @@ export const ui = {
     place: { ko: "장소", en: "Location" },
     join: { ko: "참여 방법", en: "How to join" },
     /** 참여 방법: 인스타그램 계정 앞뒤 문구 (계정은 링크로 표시) */
-    joinBefore: { ko: "", en: "Apply via the Google Form on the " },
-    joinAfter: { ko: " 인스타그램 프로필 내 구글폼으로 신청", en: " Instagram profile" },
+    joinBefore: { ko: "", en: "Apply via the Google Form linked in the " },
+    joinAfter: { ko: " 인스타그램 프로필 링크 내 구글폼으로 신청", en: " Instagram profile" },
   },
   visit: {
     title: { ko: "동백마을로 놀러 와.", en: "Come visit Dongbaek Village." },
@@ -211,13 +211,13 @@ export const goods: Goods[] = [
     w: 1024,
     h: 1536,
     alt: {
-      ko: "동백꽃·잎·씨앗 참과 bl🌸om! 태그가 달린 BLOOM CHARM 키링",
-      en: "BLOOM CHARM keyring with camellia flower, leaf, seed charms and a bl🌸om! tag",
+      ko: "동백꽃·잎·씨앗 참과 bl✿om! 태그가 달린 BLOOM CHARM 키링",
+      en: "BLOOM CHARM keyring with camellia flower, leaf, seed charms and a bl✿om! tag",
     },
     short: { ko: "동백꽃 모티프 키링 참", en: "Camellia-motif keyring charm" },
     features: [
       { ko: "청록 외곽선의 동백꽃 메인 참", en: "Main camellia charm with an aqua outline" },
-      { ko: "잎·씨앗·민트 캡슐 참과 bl🌸om! 로고 태그", en: "Leaf, seed and mint capsule charms with a bl🌸om! tag" },
+      { ko: "잎·씨앗·민트 캡슐 참과 bl✿om! 로고 태그", en: "Leaf, seed and mint capsule charms with a bl✿om! tag" },
       { ko: "가방이나 열쇠에 거는 카라비너 고리", en: "Carabiner clip for bags or keys" },
     ],
     story: {
@@ -232,14 +232,14 @@ export const goods: Goods[] = [
     w: 1024,
     h: 1536,
     alt: {
-      ko: "동백꽃·잎·씨앗과 bl🌸om! 로고 스티커가 담긴 BLOOM STICKERS 시트",
-      en: "BLOOM STICKERS sheet with camellia flower, leaf, seed and bl🌸om! logo stickers",
+      ko: "동백꽃·잎·씨앗과 bl✿om! 로고 스티커가 담긴 BLOOM STICKERS 시트",
+      en: "BLOOM STICKERS sheet with camellia flower, leaf, seed and bl✿om! logo stickers",
     },
     short: { ko: "동백꽃·잎·씨앗 스티커", en: "Camellia flower, leaf & seed stickers" },
     features: [
       { ko: "광택감 있는 입체 느낌의 스티커 시트", en: "Glossy sticker sheet with a puffy look" },
       { ko: "동백꽃·잎·씨앗 등 브랜드 그래픽 구성", en: "Brand graphics: flower, leaf, seed and more" },
-      { ko: "bl🌸om! 로고 스티커 포함", en: "Includes a bl🌸om! logo sticker" },
+      { ko: "bl✿om! 로고 스티커 포함", en: "Includes a bl✿om! logo sticker" },
     ],
     story: {
       ko: "동백마을의 동백꽃·잎·씨앗에 A2O LITE의 NEON 컬러를 입혀 스티커로 옮겼어요. 다이어리, 노트북, 여행 가방 어디든 너만의 동백을 피워 봐.",
@@ -253,8 +253,8 @@ export const goods: Goods[] = [
     w: 1312,
     h: 1199,
     alt: {
-      ko: "bl🌸om! 로고가 있는 CAMELLIA OIL 30 mL 병과 패키지",
-      en: "CAMELLIA OIL 30 mL bottle and box with the bl🌸om! logo",
+      ko: "bl✿om! 로고가 있는 CAMELLIA OIL 30 mL 병과 패키지",
+      en: "CAMELLIA OIL 30 mL bottle and box with the bl✿om! logo",
     },
     short: { ko: "동백오일 30 mL", en: "Camellia oil 30 mL" },
     features: [
@@ -301,7 +301,7 @@ export const experiences: Experience[] = [
       { ko: "숲을 바라보며 나만의 속도로 명상하기", en: "Meditate at your own pace, facing the forest" },
     ],
     duration: { ko: "50분", en: "50 min" },
-    place: { ko: "제주 동백마을 내 bl🌸om! Tea House", en: "bl🌸om! Tea House, Dongbaek Village, Jeju" },
+    place: { ko: "제주 동백마을 내 bl✿om! Tea House", en: "bl✿om! Tea House, Dongbaek Village, Jeju" },
     pio: { src: "/bloom/chars/pio-smell.png", w: 368, h: 374, alt: { ko: "꽃 향기를 맡는 피오", en: "Pio smelling a flower" } },
     tori: { src: "/bloom/chars/tori-tea.png", w: 322, h: 370, alt: { ko: "차를 마시는 토리", en: "Tori sipping tea" } },
   },
@@ -323,7 +323,7 @@ export const experiences: Experience[] = [
       { ko: "완성된 오일의 향과 질감 느껴 보기", en: "Feel the scent and texture of the oil" },
     ],
     duration: { ko: "1시간 30분", en: "1 hr 30 min" },
-    place: { ko: "제주 동백마을 내 bl🌸om! Oil Atelier", en: "bl🌸om! Oil Atelier, Dongbaek Village, Jeju" },
+    place: { ko: "제주 동백마을 내 bl✿om! Oil Atelier", en: "bl✿om! Oil Atelier, Dongbaek Village, Jeju" },
     pio: { src: "/bloom/chars/pio-explore.png", w: 390, h: 370, alt: { ko: "주변을 둘러보며 탐험하는 피오", en: "Pio exploring around" } },
     tori: { src: "/bloom/chars/tori-oil.png", w: 349, h: 408, alt: { ko: "오일을 만드는 토리", en: "Tori making oil" } },
   },
@@ -345,7 +345,7 @@ export const experiences: Experience[] = [
       { ko: "완성한 파스타 맛있게 먹기", en: "Enjoy the pasta you made" },
     ],
     duration: { ko: "1시간 30분", en: "1 hr 30 min" },
-    place: { ko: "제주 동백마을 내 bl🌸om! Kitchen", en: "bl🌸om! Kitchen, Dongbaek Village, Jeju" },
+    place: { ko: "제주 동백마을 내 bl✿om! Kitchen", en: "bl✿om! Kitchen, Dongbaek Village, Jeju" },
     pio: { src: "/bloom/chars/pio-pasta.png", w: 394, h: 385, alt: { ko: "요리하는 피오", en: "Pio cooking" } },
     tori: { src: "/bloom/chars/tori-pasta.png", w: 387, h: 382, alt: { ko: "요리하는 토리", en: "Tori cooking" } },
   },

@@ -12,11 +12,11 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
           <AuthMenu />
         </Suspense>
         <div className="flex h-14 items-center px-4">
-          <Link href="/" className="flex items-center" aria-label="bl🌸om! 메인으로">
+          <Link href="/" className="flex items-center" aria-label="bl✿om! 메인으로">
             {/* 메인 헤더(모바일)와 같은 로고 크기 */}
             <Image
               src="/bloom/logo/color.png"
-              alt="bl🌸om!"
+              alt="bl✿om!"
               width={2172}
               height={724}
               sizes="120px"

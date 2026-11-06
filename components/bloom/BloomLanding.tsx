@@ -37,7 +37,7 @@ function Footer() {
     <footer className="bg-forest px-5 pt-10 pb-12 text-cream-head/80 md:px-10 md:pt-14 md:pb-16">
       <div className="mx-auto max-w-6xl">
         <div>
-          <Image src="/bloom/logo/white.png" alt="bl🌸om!" width={2048} height={682} className="h-9 w-auto md:h-11" />
+          <Image src="/bloom/logo/white.png" alt="bl✿om!" width={2048} height={682} className="h-9 w-auto md:h-11" />
           <p className="mt-3 font-display text-lg text-cream-head md:text-xl">{ui.footer.slogan[lang]}</p>
           <p className="mt-1 text-xs font-bold">{COLLAB}</p>
         </div>
