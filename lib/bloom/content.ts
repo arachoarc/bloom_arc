@@ -221,7 +221,7 @@ export const goods: Goods[] = [
       { ko: "가방이나 열쇠에 거는 카라비너 고리", en: "Carabiner clip for bags or keys" },
     ],
     story: {
-      ko: "동백마을의 꽃과 씨앗, A2O LITE의 경쾌한 컬러를 한 줄에 엮었어요. 여행이 끝나도 너의 방식대로 피어난 순간을 기억하도록.",
+      ko: "여행이 끝나도 각자의 방식대로 피어난 순간을 기억하도록, 동백마을의 꽃과 씨앗, A2O LITE의 경쾌한 컬러를 한 줄에 엮었어요.",
       en: "Dongbaek Village's flower and seeds strung together with A2O LITE's playful colors — to remember the moment you bloomed your way.",
     },
   },
@@ -242,7 +242,7 @@ export const goods: Goods[] = [
       { ko: "bl✿om! 로고 스티커 포함", en: "Includes a bl✿om! logo sticker" },
     ],
     story: {
-      ko: "동백마을의 동백꽃·잎·씨앗에 A2O LITE의 NEON 컬러를 입혀 스티커로 옮겼어요. 다이어리, 노트북, 여행 가방 어디든 너만의 동백을 피워 봐.",
+      ko: "동백마을의 동백꽃·잎·씨앗에 A2O LITE의 NEON 컬러를 입혀 스티커로 옮겼어요. 다이어리, 노트북, 여행 가방 어디든 너만의 동백을 피워 봐요.",
       en: "Dongbaek Village's camellia, leaf and seed, colored in A2O LITE's NEON tones and turned into stickers — ready to bloom on your diary, laptop or suitcase.",
     },
   },
