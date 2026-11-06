@@ -60,7 +60,7 @@ const STAGE: StageItem[] = [
   [G.pink, "70%", "90%", "w-7 xl:w-8", 2.4, "rise"],
 ];
 
-/** 네온 꽃 피어나기. 화면에 보일 때 한 번 재생 (움직임 줄이기 설정이면 바로 완성된 모습) */
+/** 네온 꽃 피어나기. 이 영역에 들어올 때마다 다시 재생 (화면 밖으로 완전히 나가면 처음 상태로) (움직임 줄이기 설정이면 바로 완성된 모습) */
 function BloomStage() {
   const ref = useRef<HTMLDivElement>(null);
   const [on, setOn] = useState(false);
@@ -70,12 +70,11 @@ function BloomStage() {
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setOn(true);
-          io.disconnect();
-        }
+        // 40% 이상 보이면 재생, 완전히 벗어나면 되감아 다음에 다시 재생
+        if (entry.intersectionRatio >= 0.4) setOn(true);
+        else if (!entry.isIntersecting) setOn(false);
       },
-      { threshold: 0.4 },
+      { threshold: [0, 0.4] },
     );
     io.observe(el);
     return () => io.disconnect();
