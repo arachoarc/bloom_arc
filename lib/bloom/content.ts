@@ -148,6 +148,8 @@ export const ui = {
     google: { ko: "Google 지도에서 보기", en: "Open in Google Maps" },
     naver: { ko: "네이버 지도에서 보기", en: "Open in Naver Map" },
     newTab: { ko: "(새 창)", en: "(opens in new tab)" },
+    copy: { ko: "주소 복사", en: "Copy address" },
+    copied: { ko: "복사됨", en: "Copied" },
   },
   notify: {
     eyebrow: { ko: "GET NOTIFIED", en: "GET NOTIFIED" },
