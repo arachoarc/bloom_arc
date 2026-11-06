@@ -18,9 +18,9 @@ export default function VisitPanel({ className = "" }: { className?: string }) {
     if (timer.current) clearTimeout(timer.current);
   }, []);
 
-  /** 장소 이름 + 주소를 클립보드에 넣고 잠깐 "복사됨"으로 바꾼다 */
+  /** 주소만 클립보드에 넣고 잠깐 "복사됨"으로 바꾼다 (지도 앱에 바로 붙여 넣기 좋게) */
   async function copyAddress() {
-    const text = `${v.place[lang]}\n${v.address[lang]}`;
+    const text = v.address[lang];
     try {
       await navigator.clipboard.writeText(text);
     } catch {
