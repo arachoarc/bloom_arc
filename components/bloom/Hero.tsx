@@ -12,8 +12,8 @@ const KV = {
     landscape: { video: "/bloom/video/kv-horizontal-1080.mp4", poster: "/bloom/kv-poster-horizontal.jpg" },
   },
   en: {
-    portrait: { video: "/bloom/video/kv-en.mp4", poster: "/bloom/kv-poster.png" },
-    landscape: { video: "/bloom/video/kv-horizontal-1080-en.mp4", poster: "/bloom/kv-poster-horizontal.jpg" },
+    portrait: { video: "/bloom/video/kv-en.mp4", poster: "/bloom/kv-poster-en.jpg" },
+    landscape: { video: "/bloom/video/kv-horizontal-1080-en.mp4", poster: "/bloom/kv-poster-horizontal-en.jpg" },
   },
 };
 
