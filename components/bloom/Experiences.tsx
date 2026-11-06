@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useBloom } from "./BloomContext";
 import { Sheet } from "./Sheet";
 import { Duo, Eyebrow } from "./parts";
-import { experiences, ui } from "@/lib/bloom/content";
+import { INSTAGRAM, experiences, ui } from "@/lib/bloom/content";
 
 export default function Experiences() {
   const { lang } = useBloom();
@@ -102,15 +102,26 @@ export default function Experiences() {
             <dl className="mt-2 divide-y divide-ink/10 rounded-2xl bg-cream-head text-sm">
               <div className="flex gap-3 px-4 py-3">
                 <dt className="w-16 shrink-0 font-bold text-ink/60">{e.duration[lang]}</dt>
-                <dd className="text-ink/80">{e.tbd[lang]}</dd>
+                <dd className="text-ink/80">{item.duration[lang]}</dd>
               </div>
               <div className="flex gap-3 px-4 py-3">
                 <dt className="w-16 shrink-0 font-bold text-ink/60">{e.place[lang]}</dt>
-                <dd className="text-ink/80">{e.placeValue[lang]}</dd>
+                <dd className="text-ink/80">{item.place[lang]}</dd>
               </div>
               <div className="flex gap-3 px-4 py-3">
                 <dt className="w-16 shrink-0 font-bold text-ink/60">{e.join[lang]}</dt>
-                <dd className="text-ink/80">{e.joinValue[lang]}</dd>
+                <dd className="text-ink/80">
+                  {e.joinBefore[lang]}
+                  <a
+                    href={INSTAGRAM.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-pink underline underline-offset-2"
+                  >
+                    {INSTAGRAM.handle}
+                  </a>
+                  {e.joinAfter[lang]}
+                </dd>
               </div>
             </dl>
 

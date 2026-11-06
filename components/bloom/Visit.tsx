@@ -1,7 +1,6 @@
 "use client";
 
 import { useBloom } from "./BloomContext";
-import { Eyebrow } from "./parts";
 import { MAP_LINKS, ui } from "@/lib/bloom/content";
 
 /**
@@ -19,8 +18,7 @@ export default function VisitPanel({ className = "" }: { className?: string }) {
       role="region"
       className={`flex flex-col rounded-[28px] bg-forest/70 p-5 ring-1 ring-cream-head/15 backdrop-blur-sm md:p-7 ${className}`}
     >
-      <Eyebrow tone="light">{v.eyebrow[lang]}</Eyebrow>
-      <h2 id="visit-title" className="mt-2 font-display text-2xl leading-tight md:text-3xl">
+      <h2 id="visit-title" className="font-display text-2xl leading-tight md:text-3xl">
         {v.title[lang]}
       </h2>
 
