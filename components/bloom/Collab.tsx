@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { useBloom } from "./BloomContext";
 import { BellIcon, Eyebrow } from "./parts";
 import { COLLAB, ui } from "@/lib/bloom/content";
@@ -9,6 +10,7 @@ import { COLLAB, ui } from "@/lib/bloom/content";
 const G = {
   aqua: { src: "/bloom/collab/aqua.png", w: 245, h: 374 },
   aquaFlower: { src: "/bloom/collab/aqua-flower.png", w: 348, h: 341 },
+  mainFlower: { src: "/bloom/collab/main-flower.png", w: 453, h: 413 },
   flower: { src: "/bloom/collab/flower.png", w: 282, h: 276 },
   leaf: { src: "/bloom/collab/leaf.png", w: 305, h: 295 },
   pink: { src: "/bloom/collab/pink-flower.png", w: 358, h: 355 },
@@ -30,20 +32,81 @@ const SPRAY: [Gfx, Place, string, number][] = [
   [G.pink, { left: "720px", top: "-2%" }, "w-24", 2.0],
   [G.seed, { right: "3%", top: "0%" }, "w-14", 3.1],
   [G.aquaFlower, { right: "14%", top: "13%" }, "w-20", 0.5],
-  // 본문 줄 옆 (가까이 작게 → 멀리 크게)
+  // 본문 줄 옆 (가까이 작게)
   [G.flower, { left: "500px", top: "34%" }, "w-8", 0.3],
-  [G.aqua, { left: "560px", top: "29%" }, "w-6", 2.9],
-  // 큰 아쿠아 선 꽃: 오른쪽 큰 꽃(right 12%) 바로 왼쪽 빈 곳. 1280px 미만은 자리가 좁아 숨김
-  [G.aquaFlower, { right: "calc(12% + 160px)", top: "42%" }, "hidden w-36 xl:block", 1.7],
-  [G.aqua, { right: "2%", top: "28%" }, "w-8", 2.6],
-  [G.flower, { right: "12%", top: "29%" }, "w-36", 1.9],
-  [G.leaf, { right: "1%", top: "46%" }, "w-24", 1.2],
+  [G.aqua, { left: "560px", top: "31%" }, "w-6", 2.9],
   // 굿즈 줄 옆
   [G.pink, { left: "500px", top: "66%" }, "w-10", 2.4],
   [G.seed, { left: "400px", top: "90%" }, "w-8", 1.1],
-  [G.seed, { left: "560px", top: "78%" }, "w-16", 0.1],
-  [G.pink, { right: "2%", top: "76%" }, "w-20", 0.7],
+  [G.seed, { left: "560px", top: "78%" }, "hidden w-16 xl:block", 0.1],
 ];
+
+/*
+ * lg 이상 오른쪽 빈 공간: KV 영상처럼 큰 네온 꽃 두 송이가 펼쳐지며 피어나고,
+ * 이어서 나머지 그래픽이 은은하게 떠오른다.
+ * [그래픽, left, top, 크기, 나타나는 시각(초), 종류] — left/top은 무대(오른쪽 아래 상자) 기준 %
+ */
+type StageItem = [Gfx, string, string, string, number, "bloom" | "rise"];
+const STAGE: StageItem[] = [
+  // 뒤쪽 아쿠아 선 꽃 → 앞쪽 메인 꽃 순서로 펼쳐진다
+  [G.aquaFlower, "50%", "2%", "w-40 xl:w-48", 0.5, "bloom"],
+  [G.mainFlower, "8%", "22%", "w-64 xl:w-80", 0, "bloom"],
+  // 나머지 그래픽
+  [G.flower, "0%", "0%", "w-14 xl:w-16", 1.4, "rise"],
+  [G.pink, "84%", "36%", "w-12 xl:w-14", 1.6, "rise"],
+  [G.aqua, "38%", "0%", "w-6 xl:w-7", 1.8, "rise"],
+  [G.leaf, "82%", "64%", "w-14 xl:w-16", 2.0, "rise"],
+  [G.seed, "0%", "76%", "w-11 xl:w-12", 2.2, "rise"],
+  [G.pink, "70%", "90%", "w-7 xl:w-8", 2.4, "rise"],
+];
+
+/** 네온 꽃 피어나기. 화면에 보일 때 한 번 재생 (움직임 줄이기 설정이면 바로 완성된 모습) */
+function BloomStage() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [on, setOn] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setOn(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      aria-hidden
+      className={`bloom-stage pointer-events-none absolute right-0 bottom-0 hidden h-[72%] w-[22rem] lg:block xl:w-[28rem] ${on ? "is-on" : ""}`}
+    >
+      {STAGE.map(([g, left, top, size, at, kind], i) => (
+        <span
+          key={i}
+          className={`${kind === "bloom" ? "neon-bloom" : "neon-rise"} absolute ${size}`}
+          style={{ left, top, ["--at" as string]: `${at}s` }}
+        >
+          <Image
+            src={g.src}
+            alt=""
+            width={g.w}
+            height={g.h}
+            sizes={kind === "bloom" ? "320px" : "64px"}
+            className="glow-float block h-auto w-full"
+            style={{ animationDelay: `${i * 0.6}s` }}
+          />
+        </span>
+      ))}
+    </div>
+  );
+}
 
 /* 모바일·태블릿: 글씨가 화면 폭을 거의 다 쓰므로 글씨 사이사이 띠에서 옆으로 퍼지게 */
 const BAND_TOP: Spot[] = [
@@ -174,6 +237,8 @@ export default function Collab() {
             />
           ))}
         </div>
+
+        <BloomStage />
 
         <GlowBand spots={BAND_TOP} className="h-24 md:h-32" />
 

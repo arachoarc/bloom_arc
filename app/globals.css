@@ -82,6 +82,62 @@ body {
   }
 }
 
+/*
+ * 콜라보 섹션: KV 영상처럼 네온 꽃이 돌며 펼쳐지고(bloom), 나머지 그래픽은 은은하게 떠오른다(rise).
+ * --at: 나타나는 시각
+ */
+.bloom-stage .neon-bloom,
+.bloom-stage .neon-rise {
+  opacity: 0;
+}
+.bloom-stage.is-on .neon-bloom {
+  animation: neon-bloom 1.6s cubic-bezier(0.22, 1, 0.36, 1) var(--at, 0s) both;
+}
+.bloom-stage.is-on .neon-rise {
+  animation: neon-rise 1.1s ease-out var(--at, 1.4s) both;
+}
+@keyframes neon-bloom {
+  0% {
+    opacity: 0;
+    transform: scale(0.15) rotate(-140deg);
+    clip-path: circle(8% at 50% 50%);
+    filter: blur(6px) brightness(1.8);
+  }
+  35% {
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.06) rotate(6deg);
+    clip-path: circle(72% at 50% 50%);
+    filter: blur(0) brightness(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    clip-path: circle(75% at 50% 50%);
+    filter: none;
+  }
+}
+@keyframes neon-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.8);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bloom-stage .neon-bloom,
+  .bloom-stage .neon-rise {
+    opacity: 1;
+    animation: none !important;
+  }
+}
+
 /* 한국어 제목이 단어 중간에서 줄바꿈되지 않게 한다 */
 h1,
 h2,
