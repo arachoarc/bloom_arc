@@ -42,15 +42,14 @@ const SPRAY: [Gfx, Place, string, number][] = [
 ];
 
 /*
- * lg 이상 오른쪽 빈 공간: KV 영상처럼 큰 네온 꽃 두 송이가 펼쳐지며 피어나고,
+ * lg 이상 오른쪽 빈 공간: KV 영상처럼 메인 핑크 네온 꽃이 펼쳐지며 피어나고,
  * 이어서 나머지 그래픽이 은은하게 떠오른다.
  * [그래픽, left, top, 크기, 나타나는 시각(초), 종류] — left/top은 무대(오른쪽 아래 상자) 기준 %
  */
 type StageItem = [Gfx, string, string, string, number, "bloom" | "rise"];
 const STAGE: StageItem[] = [
-  // 뒤쪽 아쿠아 선 꽃 → 앞쪽 메인 꽃 순서로 펼쳐진다
-  [G.aquaFlower, "50%", "2%", "w-40 xl:w-48", 0.5, "bloom"],
-  [G.mainFlower, "8%", "22%", "w-64 xl:w-80", 0, "bloom"],
+  // 메인 핑크 꽃이 펼쳐진다
+  [G.mainFlower, "50%", "2%", "w-40 xl:w-48", 0, "bloom"],
   // 나머지 그래픽
   [G.flower, "0%", "0%", "w-14 xl:w-16", 1.4, "rise"],
   [G.pink, "84%", "36%", "w-12 xl:w-14", 1.6, "rise"],
