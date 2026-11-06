@@ -16,13 +16,14 @@ const GLOWS = [
   { src: "/bloom/collab/seed.png", w: 323, h: 324, cls: "right-6 bottom-6 hidden w-12 lg:block lg:right-[8%] lg:bottom-14", delay: 0.8 },
 ] as const;
 
-/** 콜라보 굿즈 출시 알림 신청 (프로토타입: 이메일 저장·발송 없음) */
+/** 콜라보 굿즈 출시 알림 신청 (이메일은 구글 스프레드시트에 저장) */
 export default function Notify() {
   const { lang } = useBloom();
   const n = ui.notify;
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | undefined>();
   const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
   const doneRef = useRef<HTMLHeadingElement>(null);
 
@@ -33,15 +34,31 @@ export default function Notify() {
     return undefined;
   }
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (sending) return;
     const err = validate(email);
     setError(err);
     if (err) {
       emailRef.current?.focus();
       return;
     }
-    // 프로토타입: 이메일을 저장하거나 전송하지 않는다.
+    // 이메일을 /api/notify 로 보내 구글 스프레드시트에 쌓는다.
+    setSending(true);
+    try {
+      const res = await fetch("/api/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), lang }),
+      });
+      if (!res.ok) throw new Error();
+    } catch {
+      setError(n.errSend[lang]);
+      emailRef.current?.focus();
+      return;
+    } finally {
+      setSending(false);
+    }
     setDone(true);
     requestAnimationFrame(() => {
       document.getElementById("notify")?.scrollIntoView({ block: "start" });
@@ -183,9 +200,9 @@ export default function Notify() {
                 </p>
               )}
 
-              <PrimaryButton type="submit" className="mt-7">
+              <PrimaryButton type="submit" className="mt-7" disabled={sending}>
                 <BellIcon />
-                {n.submit[lang]}
+                {sending ? n.sending[lang] : n.submit[lang]}
               </PrimaryButton>
 
               <p id="notify-proto" className="mt-4 flex gap-2 rounded-2xl bg-cream px-4 py-3 text-[12px] leading-5 text-ink/70">

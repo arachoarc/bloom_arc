@@ -160,14 +160,19 @@ export const ui = {
     email: { ko: "이메일 주소", en: "Email address" },
     placeholder: { ko: "you@example.com", en: "you@example.com" },
     submit: { ko: "알림받기", en: "Get notified" },
+    sending: { ko: "신청하는 중…", en: "Signing up…" },
+    errSend: {
+      ko: "신청을 저장하지 못했어요. 잠시 후 다시 시도해 주세요.",
+      en: "We couldn't save your sign-up. Please try again shortly.",
+    },
     errEmpty: { ko: "이메일 주소를 입력해 주세요.", en: "Please enter your email address." },
     errFormat: {
       ko: "이메일 형식이 올바르지 않아요. 예) you@example.com",
       en: "That email doesn't look right. e.g. you@example.com",
     },
     proto: {
-      ko: "교육용 프로토타입이에요. 입력한 이메일은 저장되거나 전송되지 않아요.",
-      en: "This is an educational prototype. Your email is not stored or sent.",
+      ko: "입력한 이메일은 굿즈 출시 알림을 보내는 데에만 사용돼요.",
+      en: "Your email is used only to send the goods launch update.",
     },
     doneTitle: { ko: "알림 신청 화면이 완료되었어요!", en: "Your notification sign-up is complete!" },
     doneBody: {
@@ -175,8 +180,8 @@ export const ui = {
       en: "Your update",
     },
     doneProto: {
-      ko: "프로토타입이라 실제 이메일은 발송되지 않아요.",
-      en: "As a prototype, no email will actually be sent.",
+      ko: "굿즈가 출시되면 입력한 이메일로 알려 드릴게요.",
+      en: "We'll email you when the goods launch.",
     },
     doneAlt: { ko: "손 흔들며 인사하는 피오와 토리", en: "Pio and Tori waving hello" },
     again: { ko: "다시 신청하기", en: "Sign up again" },
