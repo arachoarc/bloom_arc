@@ -115,10 +115,10 @@ export default function Notify() {
           <div className="flex flex-col items-center text-center">
             <div className="relative w-full rounded-[32px] bg-cream px-5 pt-8 pb-7 text-ink">
               <Image
-                src="/bloom/chars/together-welcome.png"
+                src="/bloom/chars/together-tea.png"
                 alt={n.doneAlt[lang]}
-                width={707}
-                height={404}
+                width={683}
+                height={457}
                 sizes="300px"
                 className="mx-auto h-auto w-[78%]"
               />

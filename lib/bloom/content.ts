@@ -183,7 +183,7 @@ export const ui = {
       ko: "굿즈가 출시되면 입력한 이메일로 알려 드릴게요.",
       en: "We'll email you when the goods launch.",
     },
-    doneAlt: { ko: "손 흔들며 인사하는 피오와 토리", en: "Pio and Tori waving hello" },
+    doneAlt: { ko: "벤치에 나란히 앉아 차를 마시는 피오와 토리", en: "Pio and Tori sipping tea side by side on a bench" },
     again: { ko: "다시 신청하기", en: "Sign up again" },
     top: { ko: "처음으로", en: "Back to top" },
   },
