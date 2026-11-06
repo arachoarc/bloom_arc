@@ -10,6 +10,7 @@ import { COLLAB, ui } from "@/lib/bloom/content";
 const G = {
   aqua: { src: "/bloom/collab/aqua.png", w: 245, h: 374 },
   aquaFlower: { src: "/bloom/collab/aqua-flower.png", w: 348, h: 341 },
+  mainFlower: { src: "/bloom/collab/main-flower.png", w: 453, h: 413 },
   flower: { src: "/bloom/collab/flower.png", w: 282, h: 276 },
   leaf: { src: "/bloom/collab/leaf.png", w: 305, h: 295 },
   pink: { src: "/bloom/collab/pink-flower.png", w: 358, h: 355 },
@@ -41,15 +42,21 @@ const SPRAY: [Gfx, Place, string, number][] = [
 ];
 
 /*
- * lg 이상 오른쪽 빈 공간: 작은 네온 그래픽들이 차례로 은은하게 떠오른다.
+ * lg 이상 오른쪽 빈 공간: KV 영상처럼 큰 네온 꽃 두 송이가 펼쳐지며 피어나고,
+ * 이어서 나머지 그래픽이 은은하게 떠오른다.
  * [그래픽, left, top, 크기, 나타나는 시각(초), 종류] — left/top은 무대(오른쪽 아래 상자) 기준 %
  */
 type StageItem = [Gfx, string, string, string, number, "bloom" | "rise"];
 const STAGE: StageItem[] = [
+  // 뒤쪽 아쿠아 선 꽃 → 앞쪽 메인 꽃 순서로 펼쳐진다
+  [G.aquaFlower, "50%", "2%", "w-40 xl:w-48", 0.5, "bloom"],
+  [G.mainFlower, "8%", "22%", "w-64 xl:w-80", 0, "bloom"],
+  // 나머지 그래픽
   [G.flower, "0%", "0%", "w-14 xl:w-16", 1.4, "rise"],
   [G.pink, "84%", "36%", "w-12 xl:w-14", 1.6, "rise"],
   [G.aqua, "38%", "0%", "w-6 xl:w-7", 1.8, "rise"],
   [G.leaf, "82%", "64%", "w-14 xl:w-16", 2.0, "rise"],
+  [G.seed, "0%", "76%", "w-11 xl:w-12", 2.2, "rise"],
   [G.pink, "70%", "90%", "w-7 xl:w-8", 2.4, "rise"],
 ];
 
