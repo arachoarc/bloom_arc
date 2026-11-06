@@ -5,10 +5,16 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useBloom } from "./BloomContext";
 import { ui } from "@/lib/bloom/content";
 
-// 모바일: 세로(9:16) KV / md(768px) 이상: 가로(16:9) KV
+// 모바일: 세로(9:16) KV / md(768px) 이상: 가로(16:9) KV. 언어별로 영상이 다르다.
 const KV = {
-  portrait: { video: "/bloom/video/kv-v2.mp4", poster: "/bloom/kv-poster.png" },
-  landscape: { video: "/bloom/video/kv-horizontal-1080.mp4", poster: "/bloom/kv-poster-horizontal.jpg" },
+  ko: {
+    portrait: { video: "/bloom/video/kv-v2.mp4", poster: "/bloom/kv-poster.png" },
+    landscape: { video: "/bloom/video/kv-horizontal-1080.mp4", poster: "/bloom/kv-poster-horizontal.jpg" },
+  },
+  en: {
+    portrait: { video: "/bloom/video/kv-en.mp4", poster: "/bloom/kv-poster.png" },
+    landscape: { video: "/bloom/video/kv-horizontal-1080-en.mp4", poster: "/bloom/kv-poster-horizontal.jpg" },
+  },
 };
 
 const WIDE = "(min-width: 48rem)";
@@ -29,12 +35,12 @@ export default function Hero() {
   const { lang } = useBloom();
   const video = useRef<HTMLVideoElement>(null);
   const wide = useWide();
-  const kv = wide ? KV.landscape : KV.portrait;
+  const kv = wide ? KV[lang].landscape : KV[lang].portrait;
   const [playing, setPlaying] = useState(false);
   const [fallback, setFallback] = useState(false);
   const [muted, setMuted] = useState(true);
 
-  // 화면 폭이 바뀌어 영상이 교체될 때마다 음소거 자동 재생을 다시 시도한다
+  // 화면 폭이나 언어가 바뀌어 영상이 교체될 때마다 음소거 자동 재생을 다시 시도한다
   useEffect(() => {
     const v = video.current;
     if (!v) return;
@@ -45,7 +51,7 @@ export default function Hero() {
     v.play()
       .then(() => setFallback(false))
       .catch(() => setFallback(true));
-  }, [wide]);
+  }, [wide, lang]);
 
   function toggle() {
     const v = video.current;
