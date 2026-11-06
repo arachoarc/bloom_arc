@@ -114,10 +114,6 @@ export default function Goods() {
               </div>
             </dl>
 
-            <p className="mt-6 rounded-2xl bg-limited/40 px-4 py-3 text-[13px] leading-5 text-ink/80">
-              {g.soldAt[lang]}
-            </p>
-
             <PrimaryButton
               className="mt-6"
               onClick={() => {

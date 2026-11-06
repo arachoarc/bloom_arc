@@ -111,10 +111,6 @@ export const ui = {
     zoomHint: { ko: "이미지를 눌러 확대", en: "Tap image to zoom" },
     features: { ko: "제품 특징", en: "Features" },
     collab: { ko: "콜라보 이야기", en: "Collab story" },
-    soldAt: {
-      ko: "제주 동백마을에서만 만날 수 있어요. 판매 정보는 알림으로 안내드려요.",
-      en: "Available only in Dongbaek Village, Jeju. Sales details will be shared by notification.",
-    },
     notifyCta: { ko: "콜라보 굿즈 출시 알림받기", en: "Notify me about the collab goods launch" },
   },
   exp: {
