@@ -1,8 +1,10 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { useBloom } from "./BloomContext";
 import { ui } from "@/lib/bloom/content";
+import stonewall from "@/lib/bloom/stonewall-layers.json";
 import { Eyebrow } from "./parts";
 
 /** 동백마을 소개 + 피오·토리 소개를 한 덩어리로 보여 준다 */
@@ -64,19 +66,62 @@ export default function Story() {
   );
 }
 
-/** 제주 돌담 위 피오·토리 일러스트 */
+/**
+ * 레이어별 움직임. 팔은 손 흔들기, 선은 깜빡임, 그래픽은 저마다 다른 박자로 떠다닌다.
+ * (레이어는 scripts/build-stonewall-layers.mjs 로 원본 그림에서 잘라 냄)
+ */
+const MOTION: Record<string, { className: string; style?: CSSProperties }> = {
+  "pio-arm": { className: "sw-wave-pio" },
+  "tori-arm": { className: "sw-wave-tori" },
+  "pio-marks": { className: "sw-marks" },
+  "tori-marks": { className: "sw-marks", style: { "--d": "0.35s" } as CSSProperties },
+  "leaf-left": { className: "sw-float", style: { "--t": "5.2s", "--y": "-7px", "--x": "3px", "--r": "-7deg" } as CSSProperties },
+  "flower-big": { className: "sw-float", style: { "--t": "6.4s", "--d": "-1.6s", "--y": "-6px", "--r": "8deg" } as CSSProperties },
+  "flower-small": { className: "sw-float", style: { "--t": "4.6s", "--d": "-2.4s", "--y": "-5px", "--r": "-10deg" } as CSSProperties },
+  "leaf-right": { className: "sw-float", style: { "--t": "5.6s", "--d": "-3s", "--y": "-6px", "--x": "-3px", "--r": "6deg" } as CSSProperties },
+  seeds: { className: "sw-float", style: { "--t": "4.2s", "--d": "-0.8s", "--y": "-5px", "--r": "-5deg" } as CSSProperties },
+};
+
+const pct = (v: number, total: number) => `${(v / total) * 100}%`;
+
+/** 제주 돌담 위 피오·토리 일러스트: 배경판 위에 움직이는 레이어를 겹친다 */
 function FriendsImage({ alt, className }: { alt: string; className: string }) {
+  const { width: W, height: H, layers } = stonewall;
   return (
     <div
+      role="img"
+      aria-label={alt}
       className={`relative aspect-[1670/942] overflow-hidden rounded-[28px] md:rounded-[36px] ${className}`}
     >
       <Image
-        src="/bloom/chars/friends-stonewall-v3.jpg"
-        alt={alt}
+        src="/bloom/chars/stonewall/plate.jpg"
+        alt=""
         fill
         sizes="(min-width: 768px) 50vw, 100vw"
         className="object-cover"
       />
+      {layers.map((l) => {
+        const m = MOTION[l.id];
+        return (
+          <Image
+            key={l.id}
+            src={`/bloom/chars/stonewall/${l.id}.webp`}
+            alt=""
+            width={l.width}
+            height={l.height}
+            unoptimized
+            className={`sw-layer pointer-events-none absolute max-w-none ${m?.className ?? ""}`}
+            style={{
+              left: pct(l.left, W),
+              top: pct(l.top, H),
+              width: pct(l.width, W),
+              height: pct(l.height, H),
+              transformOrigin: `${l.originX}% ${l.originY}%`,
+              ...m?.style,
+            }}
+          />
+        );
+      })}
     </div>
   );
 }

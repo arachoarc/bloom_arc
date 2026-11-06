@@ -138,6 +138,54 @@ body {
   }
 }
 
+/*
+ * 동백마을 섹션 돌담 그림: 피오·토리가 손을 흔들고(팔 레이어 회전), 주변 그래픽은 살짝 떠다닌다.
+ * 팔은 몸 쪽으로만 돌아야 뒤 배경판의 메운 자리가 드러나지 않는다 (피오 +, 토리 -).
+ * --d: 시작 지연, --r: 기울기
+ */
+.sw-layer {
+  will-change: transform;
+}
+.sw-wave-pio {
+  animation: sw-wave-pio 2.8s ease-in-out infinite;
+}
+.sw-wave-tori {
+  animation: sw-wave-tori 2.8s ease-in-out 0.35s infinite;
+}
+.sw-marks {
+  animation: sw-marks 2.8s ease-in-out var(--d, 0s) infinite;
+}
+.sw-float {
+  animation: sw-float var(--t, 5s) ease-in-out var(--d, 0s) infinite;
+}
+@keyframes sw-wave-pio {
+  0%, 44%, 100% { transform: rotate(0deg); }
+  11%, 33% { transform: rotate(8deg); }
+  22% { transform: rotate(1deg); }
+}
+@keyframes sw-wave-tori {
+  0%, 44%, 100% { transform: rotate(0deg); }
+  11%, 33% { transform: rotate(-9deg); }
+  22% { transform: rotate(-1deg); }
+}
+@keyframes sw-marks {
+  0%, 50%, 100% { opacity: 1; transform: scale(1); }
+  12%, 34% { opacity: 0.35; transform: scale(0.94); }
+  23% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes sw-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(var(--x, 0px), var(--y, -6px)) rotate(var(--r, 4deg)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sw-wave-pio,
+  .sw-wave-tori,
+  .sw-marks,
+  .sw-float {
+    animation: none;
+  }
+}
+
 /* 한국어 제목이 단어 중간에서 줄바꿈되지 않게 한다 */
 h1,
 h2,

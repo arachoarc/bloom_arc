@@ -1,0 +1,87 @@
+{
+  "width": 1670,
+  "height": 942,
+  "layers": [
+    {
+      "id": "pio-arm",
+      "left": 366,
+      "top": 325,
+      "width": 183,
+      "height": 186,
+      "originX": 81.42,
+      "originY": 86.02
+    },
+    {
+      "id": "pio-marks",
+      "left": 325,
+      "top": 290,
+      "width": 99,
+      "height": 104,
+      "originX": 75.76,
+      "originY": 76.92
+    },
+    {
+      "id": "tori-arm",
+      "left": 1135,
+      "top": 406,
+      "width": 119,
+      "height": 162,
+      "originX": 12.61,
+      "originY": 85.8
+    },
+    {
+      "id": "tori-marks",
+      "left": 1190,
+      "top": 340,
+      "width": 132,
+      "height": 132,
+      "originX": 26.52,
+      "originY": 83.33
+    },
+    {
+      "id": "leaf-left",
+      "left": 174,
+      "top": 180,
+      "width": 141,
+      "height": 138,
+      "originX": 50.35,
+      "originY": 50.72
+    },
+    {
+      "id": "flower-big",
+      "left": 1162,
+      "top": 117,
+      "width": 224,
+      "height": 220,
+      "originX": 50,
+      "originY": 50
+    },
+    {
+      "id": "flower-small",
+      "left": 248,
+      "top": 472,
+      "width": 122,
+      "height": 126,
+      "originX": 50,
+      "originY": 50
+    },
+    {
+      "id": "leaf-right",
+      "left": 1454,
+      "top": 423,
+      "width": 152,
+      "height": 109,
+      "originX": 50,
+      "originY": 50.46
+    },
+    {
+      "id": "seeds",
+      "left": 1316,
+      "top": 481,
+      "width": 122,
+      "height": 106,
+      "originX": 50,
+      "originY": 50
+    }
+  ]
+}
