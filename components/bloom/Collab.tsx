@@ -10,7 +10,7 @@ import { COLLAB, ui } from "@/lib/bloom/content";
 const G = {
   aqua: { src: "/bloom/collab/aqua.png", w: 245, h: 374 },
   aquaFlower: { src: "/bloom/collab/aqua-flower.png", w: 348, h: 341 },
-  mainFlower: { src: "/bloom/collab/main-flower.png", w: 453, h: 413 },
+  mainFlower: { src: "/bloom/collab/main-flower-pink.png", w: 282, h: 276 },
   flower: { src: "/bloom/collab/flower.png", w: 282, h: 276 },
   leaf: { src: "/bloom/collab/leaf.png", w: 305, h: 295 },
   pink: { src: "/bloom/collab/pink-flower.png", w: 358, h: 355 },
