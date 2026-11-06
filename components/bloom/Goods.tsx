@@ -21,7 +21,10 @@ export default function Goods() {
         <h2 id="goods-title" className="mt-3 font-display text-[28px] leading-tight text-ink md:text-4xl">
           {g.title[lang]}
         </h2>
-        <p className="mt-2 text-sm text-ink/65 md:mt-3 md:text-base">{g.sub[lang]}</p>
+        <p className="mt-2 text-sm text-ink/65 md:mt-3 md:text-base">
+          {g.sub[lang]}
+          <span aria-hidden className="ml-1">✨</span>
+        </p>
       </div>
 
 

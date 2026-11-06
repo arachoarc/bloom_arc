@@ -12,7 +12,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 /** 콜라보 섹션과 같은 글로우 그래픽 (가장자리 장식) */
 const GLOWS = [
   { src: "/bloom/collab/aqua-flower.png", w: 348, h: 341, cls: "top-4 right-4 w-10 lg:top-10 lg:right-[6%] lg:w-16", delay: 0 },
-  { src: "/bloom/collab/pink-flower.png", w: 358, h: 355, cls: "bottom-4 left-3 w-9 lg:bottom-12 lg:left-[4%] lg:w-14", delay: 1.4 },
+  { src: "/bloom/collab/pink-flower.png", w: 358, h: 355, cls: "bottom-3 left-3 w-8 lg:bottom-12 lg:left-[4%] lg:w-14", delay: 1.4 },
   { src: "/bloom/collab/seed.png", w: 323, h: 324, cls: "right-6 bottom-6 hidden w-12 lg:block lg:right-[8%] lg:bottom-14", delay: 0.8 },
 ] as const;
 
@@ -80,11 +80,20 @@ export default function Notify() {
       ))}
 
       {/*
-        알림받기(메인, 넓은 칸) + 찾아오는 방법(보조, 좁은 칸).
-        lg(1024px) 이상 나란히, 그 아래는 알림받기 → 찾아오는 방법 순서로 쌓는다.
+        제목은 위에 한 줄로 두고, 그 아래 알림받기 폼(메인, 넓은 칸)과 찾아오는 방법(보조, 좁은 칸)을
+        lg(1024px) 이상에서 같은 높이로 나란히 둔다. 그 아래 폭에서는 위아래로 쌓는다.
       */}
-      <div className="relative mx-auto max-w-6xl lg:grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-start lg:gap-12">
-        <div>
+      <div className="relative mx-auto max-w-6xl">
+        {!done && (
+          <div className="mb-7 md:mb-8">
+            <Eyebrow tone="light">{n.eyebrow[lang]}</Eyebrow>
+            <h2 id="notify-title" className="neon-text mt-3 font-display text-[28px] leading-tight text-cream-head md:text-4xl lg:text-5xl">
+              {n.title[lang]}
+            </h2>
+          </div>
+        )}
+        <div className="lg:grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-stretch lg:gap-12">
+        <div className="lg:flex lg:flex-col">
         {done ? (
           <div className="flex flex-col items-center text-center">
             <div className="relative w-full rounded-[32px] bg-cream px-5 pt-8 pb-7 text-ink">
@@ -129,16 +138,10 @@ export default function Notify() {
             </div>
           </div>
         ) : (
-          <div>
-            <Eyebrow tone="light">{n.eyebrow[lang]}</Eyebrow>
-            <h2 id="notify-title" className="neon-text mt-3 font-display text-[28px] leading-tight text-cream-head md:text-4xl lg:text-5xl">
-              {n.title[lang]}
-            </h2>
-
             <form
               onSubmit={onSubmit}
               noValidate
-              className="mt-7 rounded-[28px] bg-cream-light p-5 text-ink shadow-xl md:mt-8 md:rounded-[32px] md:p-8"
+              className="rounded-[28px] bg-cream-light p-5 text-ink shadow-xl md:rounded-[32px] md:p-8 lg:flex-1"
             >
               <p className="text-sm font-bold text-ink/80">{n.pick[lang]}</p>
               {/* 알림은 콜라보 굿즈 출시 소식 한 가지 */}
@@ -190,13 +193,13 @@ export default function Notify() {
                 {n.proto[lang]}
               </p>
             </form>
-          </div>
         )}
         </div>
 
-        {/* 보조: 동백마을 찾아오는 방법 */}
-        <div className="mt-10 lg:mt-32">
-          <VisitPanel />
+        {/* 보조: 동백마을 찾아오는 방법. lg 이상에서는 왼쪽 폼과 같은 높이 */}
+        <div className="mt-10 lg:mt-0 lg:flex lg:flex-col">
+          <VisitPanel className="lg:flex-1" />
+        </div>
         </div>
       </div>
     </section>

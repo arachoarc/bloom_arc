@@ -146,8 +146,8 @@ export const ui = {
     title: { ko: "동백마을로 놀러 와.", en: "Come visit Dongbaek Village." },
     howTitle: { ko: "찾아오는 방법", en: "Getting there" },
     howBody: {
-      ko: "제주 동백마을은 외부 지도에서 위치를 확인할 수 있어요. 세부 교통 안내는 확정 후 공개됩니다.",
-      en: "Find Dongbaek Village on an external map. Detailed directions will be shared once confirmed.",
+      ko: "제주 동백마을 위치를 확인하세요.",
+      en: "Check where Dongbaek Village is in Jeju.",
     },
     google: { ko: "Google 지도에서 보기", en: "Open in Google Maps" },
     naver: { ko: "네이버 지도에서 보기", en: "Open in Naver Map" },
