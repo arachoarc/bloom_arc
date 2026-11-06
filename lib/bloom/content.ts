@@ -7,7 +7,7 @@ type L = Record<Lang, string>;
 
 export const COLLAB = "동백마을 X A2O LITE";
 
-export const MAP_QUERY = "제주 동백마을";
+export const MAP_QUERY = "제주 서귀포시 한신로531번길 22-1";
 export const MAP_LINKS = {
   google: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`,
   naver: `https://map.naver.com/p/search/${encodeURIComponent(MAP_QUERY)}`,
@@ -67,11 +67,11 @@ export const ui = {
     place: { ko: "제주 · 동백마을", en: "Jeju · Dongbaek Village" },
     title: { ko: "FIND YOUR BLOOM", en: "FIND YOUR BLOOM" },
     lead: {
-      ko: "제주에서 너만의 동백을 발견해요.",
+      ko: "제주에서 각자의 동백을 발견해요.",
       en: "Discover your own camellia in Jeju.",
     },
     body: {
-      ko: "동백마을은 겨울이면 마을 곳곳에 붉은 동백이 피어나는 제주의 작은 마을이에요. 꽃이 진 자리에 맺힌 씨앗을 모아 오일로 만들며, 동백과 함께 계절을 보내 왔어요. 숲길을 걷고, 꽃잎차를 마시고, 씨앗을 고르며 너만의 속도로 머물러 보세요.",
+      ko: "동백마을은 겨울이면 마을 곳곳에 붉은 동백이 피어나는 제주의 작은 마을이에요. 꽃이 진 자리에 맺힌 씨앗을 모아 오일로 만들며, 동백과 함께 계절을 보내 왔어요. 숲길을 걷고, 꽃잎차를 마시고, 씨앗을 고르며 각자의 속도로 머물러 보세요.",
       en: "Dongbaek Village is a small Jeju village where red camellias bloom all around in winter. Villagers gather the seeds left behind by fallen flowers and press them into oil, living each season alongside the camellia. Walk the forest paths, sip petal tea, sort seeds — and stay at your own pace.",
     },
     // 피오·토리 소개 (resources/characters_png/characters_story.png 스토리 기준)
@@ -81,12 +81,12 @@ export const ui = {
         en: "Pio the Camellia and Tori the Camellia Seed waving on a Jeju stone wall with camellias",
       },
       sub: {
-        ko: "마을에 온 너를 피오와 토리가 함께 안내할 거야.",
-        en: "Pio and Tori will show you around the village together.",
+        ko: "동백마을의 피오와 토리가 반겨줄거야.",
+        en: "Pio and Tori of Dongbaek Village will welcome you.",
       },
       pio: {
         name: { ko: "동백꽃 피오", en: "Pio the Camellia" },
-        tagline: { ko: "너의 방식대로 피어나는 친구", en: "The friend who blooms in their own way" },
+        tagline: { ko: "각자의 색으로 피어나는 친구", en: "The friend who blooms in their own color" },
       },
       tori: {
         name: { ko: "동백씨앗 토리", en: "Tori the Camellia Seed" },
@@ -98,7 +98,7 @@ export const ui = {
     eyebrow: { ko: "LIMITED GOODS", en: "LIMITED GOODS" },
     title: {
       ko: "오직 동백마을에서만 만날 수 있어요",
-      en: "Found only in Dongbaek Village",
+      en: "Only in Dongbaek Village",
     },
     sub: {
       ko: "동백마을 X A2O LITE의 NEON 그래픽을 담은 한정판 굿즈",
@@ -106,12 +106,11 @@ export const ui = {
     },
     more: { ko: "자세히 보기", en: "View details" },
     zoomHint: { ko: "이미지를 눌러 확대", en: "Tap image to zoom" },
-    motif: { ko: "모티프", en: "Motif" },
     features: { ko: "제품 특징", en: "Features" },
     collab: { ko: "콜라보 이야기", en: "Collab story" },
     soldAt: {
-      ko: "제주 동백마을 팝업 현장에서만 만날 수 있어요. 판매 정보는 확정 후 알림으로 안내드려요.",
-      en: "Available only at the Dongbaek Village pop-up. Sales details will be shared once confirmed.",
+      ko: "제주 동백마을에서만 만날 수 있어요. 판매 정보는 알림으로 안내드려요.",
+      en: "Available only in Dongbaek Village, Jeju. Sales details will be shared by notification.",
     },
     notifyCta: { ko: "콜라보 굿즈 출시 알림받기", en: "Notify me about the collab goods launch" },
   },
@@ -148,6 +147,11 @@ export const ui = {
     howBody: {
       ko: "제주 동백마을 위치를 확인하세요.",
       en: "Check where Dongbaek Village is in Jeju.",
+    },
+    place: { ko: "동백마을방문자센터", en: "Dongbaek Village Visitor Center" },
+    address: {
+      ko: "제주 서귀포시 한신로531번길 22-1",
+      en: "22-1, Hansin-ro 531beon-gil, Seogwipo-si, Jeju",
     },
     google: { ko: "Google 지도에서 보기", en: "Open in Google Maps" },
     naver: { ko: "네이버 지도에서 보기", en: "Open in Naver Map" },
@@ -203,7 +207,6 @@ export type Goods = {
   h: number;
   alt: L;
   short: L;
-  motif: L;
   features: L[];
   story: L;
 };
@@ -220,10 +223,6 @@ export const goods: Goods[] = [
       en: "BLOOM CHARM keyring with camellia flower, leaf, seed charms and a bl✿om! tag",
     },
     short: { ko: "동백꽃 모티프 키링 참", en: "Camellia-motif keyring charm" },
-    motif: {
-      ko: "핑크 그라데이션 동백꽃, 연두 잎, 주황·갈색 동백씨앗",
-      en: "Pink-gradient camellia, lime leaf, orange & brown camellia seeds",
-    },
     features: [
       { ko: "청록 외곽선의 동백꽃 메인 참", en: "Main camellia charm with an aqua outline" },
       { ko: "잎·씨앗·민트 캡슐 참과 bl✿om! 로고 태그", en: "Leaf, seed and mint capsule charms with a bl✿om! tag" },
@@ -245,10 +244,6 @@ export const goods: Goods[] = [
       en: "BLOOM STICKERS sheet with camellia flower, leaf, seed and bl✿om! logo stickers",
     },
     short: { ko: "동백꽃·잎·씨앗 스티커", en: "Camellia flower, leaf & seed stickers" },
-    motif: {
-      ko: "동백꽃, 잎, 씨앗, 청록 선 꽃, bl✿om! 로고",
-      en: "Camellia flower, leaf, seed, aqua line flower and the bl✿om! logo",
-    },
     features: [
       { ko: "광택감 있는 입체 느낌의 스티커 시트", en: "Glossy sticker sheet with a puffy look" },
       { ko: "동백꽃·잎·씨앗 등 브랜드 그래픽 구성", en: "Brand graphics: flower, leaf, seed and more" },
@@ -270,10 +265,6 @@ export const goods: Goods[] = [
       en: "CAMELLIA OIL 30 mL bottle and box with the bl✿om! logo",
     },
     short: { ko: "동백오일 30 mL", en: "Camellia oil 30 mL" },
-    motif: {
-      ko: "동백씨앗과 핑크 그라데이션 동백꽃",
-      en: "Camellia seeds and a pink-gradient camellia",
-    },
     features: [
       { ko: "용량 30 mL 스포이트 병", en: "30 mL dropper bottle" },
       { ko: "동백꽃 그래픽 패키지 박스", en: "Packaging box with camellia graphics" },
@@ -307,8 +298,8 @@ export const experiences: Experience[] = [
     },
     name: { ko: "동백꽃잎차 마시며 명상하기", en: "Camellia Petal Tea Meditation" },
     short: {
-      ko: "동백 숲을 바라보며 따뜻한 꽃잎차 한 잔과 함께 쉬어 가요.",
-      en: "Slow down with a warm cup of petal tea, facing the camellia forest.",
+      ko: "따뜻한 동백꽃잎차 한 잔과 함께 쉬어 가요.",
+      en: "Slow down with a warm cup of camellia petal tea.",
     },
     steps: [
       { ko: "동백꽃잎차의 향을 천천히 맡아 보기", en: "Take in the scent of camellia petal tea" },
@@ -347,8 +338,8 @@ export const experiences: Experience[] = [
     },
     name: { ko: "고사리 파스타 쿠킹 클래스", en: "Bracken Pasta Cooking Class" },
     short: {
-      ko: "제주 고사리로 만드는 파스타, 함께 요리하고 맛봐요.",
-      en: "Cook and taste pasta made with Jeju bracken.",
+      ko: "제주 고사리로 만드는 파스타를 요리해보아요.",
+      en: "Cook pasta made with Jeju bracken.",
     },
     steps: [
       { ko: "제주 고사리와 재료 살펴보기", en: "Get to know Jeju bracken and the ingredients" },

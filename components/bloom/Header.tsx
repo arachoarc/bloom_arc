@@ -4,19 +4,19 @@ import Image from "next/image";
 import { useBloom } from "./BloomContext";
 import { ui } from "@/lib/bloom/content";
 
-const NAV = ["collab", "story", "experiences", "goods", "notify", "visit"] as const;
+const NAV = ["collab", "story", "experiences", "goods", "visit", "notify"] as const;
 
 export default function Header({ authMenu }: { authMenu?: React.ReactNode }) {
   const { lang, setLang } = useBloom();
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink/5 bg-cream-head/95 backdrop-blur">
-      <div className="mx-auto max-w-6xl lg:px-6">{authMenu}</div>
+      <div className="mx-auto max-w-6xl lg:max-w-[77rem] lg:px-10">{authMenu}</div>
       {/* 모바일·태블릿: 로고·언어 한 줄 + 섹션 메뉴 한 줄 / lg(1024px) 이상: 로고·메뉴·언어 한 줄 */}
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center lg:h-16 lg:flex-nowrap lg:gap-6 lg:px-6">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center lg:h-16 lg:max-w-[77rem] lg:flex-nowrap lg:gap-6 lg:px-10">
         <a
           href="#top"
-          className="flex h-14 items-center pl-4 lg:h-auto lg:shrink-0"
+          className="flex h-14 items-center pl-5 md:pl-10 lg:h-auto lg:shrink-0 lg:pl-0"
           aria-label="bl✿om! — BLOOM YOUR WAY"
         >
           <Image
@@ -33,7 +33,7 @@ export default function Header({ authMenu }: { authMenu?: React.ReactNode }) {
         <div
           role="group"
           aria-label="Language"
-          className="mr-4 ml-auto flex rounded-full bg-cream p-0.5 text-xs font-bold lg:order-3 lg:ml-0"
+          className="mr-5 ml-auto flex rounded-full bg-cream p-0.5 text-xs font-bold md:mr-10 lg:order-3 lg:mr-0 lg:ml-0"
         >
           {(["ko", "en"] as const).map((l) => (
             <button

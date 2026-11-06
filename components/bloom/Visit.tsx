@@ -26,6 +26,10 @@ export default function VisitPanel({ className = "" }: { className?: string }) {
 
       <h3 className="mt-5 text-sm font-bold text-cream-head/90">{v.howTitle[lang]}</h3>
       <p className="mt-1.5 text-[13px] leading-5 text-cream-head/75 md:text-sm md:leading-6">{v.howBody[lang]}</p>
+      <address className="mt-3 rounded-2xl bg-cream-head/10 px-4 py-3 not-italic ring-1 ring-cream-head/15">
+        <span className="block text-sm font-bold text-cream-head">{v.place[lang]}</span>
+        <span className="mt-0.5 block text-[13px] leading-5 text-cream-head/75 md:text-sm md:leading-6">{v.address[lang]}</span>
+      </address>
       {/* 높이가 늘어나면 지도 버튼은 카드 아래쪽에 붙는다 */}
       <div className="mt-4 grid gap-2.5 lg:mt-auto lg:pt-6">
         {(

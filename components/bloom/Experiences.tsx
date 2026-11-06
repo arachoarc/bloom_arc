@@ -22,7 +22,6 @@ export default function Experiences() {
       </h2>
       <p className="mt-2 text-sm text-ink/65 md:mt-3 md:text-base">
         {e.sub[lang]}
-        <span aria-hidden className="ml-0.5">🌸</span>
       </p>
 
       <ul className="mt-7 space-y-4 md:mt-12 md:grid md:grid-cols-3 md:gap-6 md:space-y-0">

@@ -87,7 +87,7 @@ export default function Notify() {
         {!done && (
           <div className="mb-7 md:mb-8">
             <Eyebrow tone="light">{n.eyebrow[lang]}</Eyebrow>
-            <h2 id="notify-title" className="neon-text mt-3 font-display text-[28px] leading-tight text-cream-head md:text-4xl lg:text-5xl">
+            <h2 id="notify-title" className="mt-3 font-display text-[28px] leading-tight text-cream-head md:text-4xl">
               {n.title[lang]}
             </h2>
           </div>
